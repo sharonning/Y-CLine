@@ -11,7 +11,7 @@ $client->setApplicationName("Google Calendar PHP Starter Application");
 // client id, client secret, and to register your redirect uri.
  $client->setClientId('261344666547.apps.googleusercontent.com');
  $client->setClientSecret('0jPqusgO2Fm79mMpQPFrhVaK');
- $client->setRedirectUri('http://localhost/Y-cline/calendar.php');
+ $client->setRedirectUri('http://localhost/Y-cline/timeline.php');
  $client->setDeveloperKey('AIzaSyBG1W3HJnV63_miXBUExYq4OdNgNYa6tOs');
 $cal = new Google_CalendarService($client);
 if (isset($_GET['logout'])) {
