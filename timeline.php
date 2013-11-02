@@ -287,7 +287,7 @@ for($i=1;$i<=5;$i++){
 		</span>
 		</p><br>
 			<fieldset id="rinnerContent">
-				<ul type="SQARE">
+				<ul type="square">
 					<li id="t1">
 					不知道為什麼寫程式要送酒	</li><br>
 					<li id="t2">
