@@ -71,12 +71,14 @@ for($i=1;$i<=5;$i++){
 <div id="bar" class="barc">  </div>
 
 <img class="logo" src="images/logo.png">
+<img src="images/googleLoginIcon.png" style="position:fixed;top:15px;right:80px;z-index:2;">
+<img src="images/FBLoginIcon.png" style="position:fixed;top:15px;right:40px;z-index:2;">
 
  <formw>  
 	
 	<form  action="timeline.php?s=Y" method="post">
 
-　	<p class="word">Search：<input type="text" id="searchText" placeholder="找找以前發生的大事..." name="Keyword" size="40">
+　	<p class="word">Search：<input type="text" id="searchText" placeholder=" 找找以前發生的大事..." name="Keyword" size="40">
 
 	</p>
 	</form>
