@@ -10,7 +10,7 @@ function instruction()
 			$("#ins2").show(1000);
 		  });
 		  
-		 /* $("#ins2").click(function(){
+		  $("#ins2").click(function(){
 			$("#ins2").hide(1000);
 			$("#ins3").show(1000);
 		  });
@@ -26,6 +26,7 @@ function instruction()
 		  });
 		  
 		$("#ins5").click(function(){
+			$("#ins5").hide(1000);
 			$("#ins6").show(1000);
 		  });
 		  
@@ -33,7 +34,7 @@ function instruction()
 		$("#ins6").click(function(){
 			$("#ins6").hide(1000);
 			$(".mask").fadeOut(2000);
-		  });*/
+		  });
 		  
 		  
 		  
