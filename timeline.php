@@ -6,12 +6,16 @@
 	<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="css/responsive.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="css/insert.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="css/instruction.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="inc/colorbox.css" type="text/css" media="screen">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<link rel="icon" href="images/icon.png" type="image/png" />
 
 
 
-    <script type="text/javascript" src="js/insert.js"></script>
+	<script type="text/javascript" src="js/insert.js"></script>
+	<script type="text/javascript" src="js/instruction.js"></script>
+
 
 	<script type="text/javascript" src="inc/colorbox.js"></script>
 	<script type="text/javascript" src="js/timeliner.min.js"></script>
@@ -262,6 +266,20 @@ for($i=1;$i<=5;$i++){
 			<br class="clear">
 		</div><!-- /#timelineContainer -->
 	</div><!-- /.container -->
+	
+		<div class="mask">
+		</div>
+		<div class="instruction1" style="display:none">
+			<img src="images/in1.png"" id="ins1" width="100%" height="100%">  
+		</div>
+		<div class="instruction2" style="display:none">
+			<img src="images/in2.png"" id="ins2" width="100%" height="100%">  
+		</div>
+		<div class="instruction3" style="display:none">
+			<img src="images/in3.png"" id="ins3" width="100%" height="100%">
+		</div>	
+	
+	
 		<img id="insertImg" src="images/add.png" width="100" height="100">	
 		<div id="addData" style="width:480px;height:300px">
 			
