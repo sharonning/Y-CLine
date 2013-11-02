@@ -478,7 +478,6 @@ for($i=1;$i<=5;$i++){
 			  logoutFB();
 			});
 			
-<<<<<<< HEAD
 			$("#google").click(function(){
 				$.ajax({		
 					url: 'calendar.php',
@@ -493,8 +492,6 @@ for($i=1;$i<=5;$i++){
 			  
 			});
         
-=======
->>>>>>> d7a2d84bc4c7994d1d22d055a33743d07ad3e640
 			$("#meBtn").click(function() {
 				FB.api('/me/feed?limit=100&date_format=U&fields=id,message,created_time,picture,place', function(response){
 					var data = response.data;
@@ -553,7 +550,6 @@ for($i=1;$i<=5;$i++){
 							'</d1>';
 				major.append(minor);
 			});
-<<<<<<< HEAD
 			
 			function insertFbMsg(time, msg) {
 				var major = $("h2.timelineMajorMarker:contains('" + monthName[ timeFormat(time).substring(4, 6) - 1 ] + "')").parent();
@@ -585,9 +581,6 @@ for($i=1;$i<=5;$i++){
 				major.append(minor);
 			}
 			
-=======
-
->>>>>>> d7a2d84bc4c7994d1d22d055a33743d07ad3e640
 			function insertMedia() {
 				var media = '<div class="media">' + 
 								'<a href="#inline-1963-08-287" class="CBmodal"><img src="http://img.youtube.com/vi/gvAQE66jwcg/0.jpg" width="240" height="180" alt="Related Video: Black Press"></a>'
