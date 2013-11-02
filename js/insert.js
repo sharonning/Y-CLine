@@ -18,11 +18,12 @@
 		
 		$("#cancel").click(function(){
 			$("#insertImg").show(500);
-			$("#insertForm").hide(500);
+			$("#insertForm").hide(1500);
 			$("#insertForm").css("z-index","-1");
 			$("#addData").css("z-index","-1");
 			$("#area").html("選擇行程地點");
 			$("#insertForm").css("background-image","url()");
+			$("#addData").animate({left:1020},600,"easeOutBounce");
 	});
 	
 	$("#send").click(function(){
@@ -61,6 +62,7 @@
 		$('textarea[name="user_data"]').val('');
 		$('textarea[name="user_data_title"]').val('');
 		$('input[name="user_date"]').val('');
+		$("#addData").animate({left:1020},500,"easeOutBounce");
 	});
 	
 
@@ -85,6 +87,7 @@
 	$("#taipei,#taichung,#tainan,#kaoshong,#pingdong").click(function(){
 		$("#taipei,#taichung,#tainan,#kaoshong,#pingdong").fadeOut(300);
 		$("#area").html($(this).html());
+		$("#addData").animate({left:800},600,"easeOutBounce");
 		var number = 1 + Math.floor(Math.random() * 5);
 		switch (number)
 		{
