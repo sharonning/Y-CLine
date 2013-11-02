@@ -76,7 +76,7 @@ for($i=1;$i<=5;$i++){
 	
 	<form  action="timeline.php?s=Y" method="post">
 
-　	<p class="word">Search：<input type="text" id="searchText" placeholder=" 找找以前發生的大事..." name="Keyword" size="40">
+　	<p class="word">Search <input type="text" id="searchText" placeholder=" 找找以前發生的大事..." name="Keyword" size="40">
 
 	</p>
 	</form>
@@ -90,7 +90,7 @@ for($i=1;$i<=5;$i++){
 			<br class="clear">
 
 			<div class="timelineMajor">
-				<h2 class="timelineMajorMarker"><span>2013, December</span></h2>
+				<h2 class="timelineMajorMarker"><span>2013 December</span></h2>
 				<dl class="timelineMinor">
 					<dt id="19540517"><a>Brown v. Board of Education</a></dt>
 					<dd class="timelineEvent" id="19540517EX" style="display:none;">
@@ -104,7 +104,7 @@ for($i=1;$i<=5;$i++){
 			</div><!-- /.timelineMajor -->
 
 			<div class="timelineMajor">
-				<h2 class="timelineMajorMarker"><span>2013, November</span></h2>
+				<h2 class="timelineMajorMarker"><span>2013 November</span></h2>
 				<dl class="timelineMinor">
 					<dt id="19550828"><a>Emmett Till</a></dt>
 					<dd class="timelineEvent" id="19550828EX" style="display:none;">
@@ -146,7 +146,7 @@ for($i=1;$i<=5;$i++){
 			</div><!-- /.timelineMajor -->
 
 			<div class="timelineMajor">
-				<h2 class="timelineMajorMarker"><span>2013, October</span></h2>
+				<h2 class="timelineMajorMarker"><span>2013 October</span></h2>
 				<dl class="timelineMinor">
 					<dt id="19570904"><a>Little Rock</a></dt>
 					<dd class="timelineEvent" id="19570904EX" style="display:none;">
@@ -176,7 +176,7 @@ for($i=1;$i<=5;$i++){
 			</div><!-- /.timelineMajor -->
 
 			<div class="timelineMajor">
-				<h2 class="timelineMajorMarker"><span>2013, September</span></h2>
+				<h2 class="timelineMajorMarker"><span>2013 September</span></h2>
 				<dl class="timelineMinor">
 					<dt id="19610504"><a>Freedom Rides</a></dt>
 					<dd class="timelineEvent" id="19610504EX" style="display:none;">
@@ -205,7 +205,7 @@ for($i=1;$i<=5;$i++){
 			</div><!-- /.timelineMajor -->
 
 			<div class="timelineMajor">
-				<h2 class="timelineMajorMarker"><span>2013, August</span></h2>
+				<h2 class="timelineMajorMarker"><span>2013 August</span></h2>
 				<dl class="timelineMinor">
 					<dt id="19630828"><a>"I Have a Dream"</a></dt>
 					<dd class="timelineEvent" id="19630828EX" style="display:none;">
@@ -240,7 +240,7 @@ for($i=1;$i<=5;$i++){
 			</div><!-- /.timelineMajor -->
 
 			<div class="timelineMajor">
-				<h2 class="timelineMajorMarker"><span>2013, July</span></h2>
+				<h2 class="timelineMajorMarker"><span>2013 July</span></h2>
 
 				<dl class="timelineMinor">
 					<dt id="19640702"><a>Civil Rights Act</a></dt>
