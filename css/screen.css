@@ -165,7 +165,7 @@ a.expandAll {
 	padding:3px 5px;
 	z-index:3;
 	top:15px;
-	left:1000px;
+	left:1100px;
 }
 
 	a.expandAll:hover {
@@ -324,45 +324,6 @@ dl.timelineMinor {
 	display: none;
 	z-index: 99; 
  }  
-.instruction1
-{
-	position: fixed; 
-	top:200px;
-	bottom:100px;
-	left:800px;
-	right:200px;
-	display: none; 
-	width: 270px; 
-	height: 500px;
-	background: #EEEEEE; 
-	z-index: 101; 
-}
-.instruction2
-{
-	position: fixed; 
-	top:200px;
-	bottom:100px;
-	left:300px;
-	right:200px;
-	display: none; 
-	width: 270px; 
-	height: 500px;
-	background: #EEEEEE; 
-	z-index: 101; 
-}
-.instruction3
-{
-	position: fixed; 
-	top:100px;
-	bottom:100px;
-	left:100px;
-	right:200px;
-	display: none; 
-	width: 270px; 
-	height: 500px;
-	background: #EEEEEE; 
-	z-index: 101; 
-}
 
 #searchText
 {
