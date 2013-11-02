@@ -357,3 +357,15 @@ dl.timelineMinor {
 	background: #EEEEEE; 
 	z-index: 101; 
 }
+
+#searchText
+{
+	-webkit-border-radius: 5px;
+	outline: none; 
+	
+}
+#searchText:focus
+ {
+    box-shadow: inset 0 0 1px 2px #3366FF; 
+                                          
+}
