@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="css/insert.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="inc/colorbox.css" type="text/css" media="screen">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<<<<<<< HEAD
+
 	<script type="text/javascript" src="js/insert.min.js"></script>
 
 	<script type="text/javascript" src="js/insert.js"></script>
