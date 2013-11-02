@@ -55,18 +55,18 @@ for($i=1;$i<=5;$i++){
 	$high[1]=trim($high[1])."°C";
 	$low[1]=str_replace("<br />","",$low[1])."°C";
 		  if(strpos($status[1],"lear")>-1){
-		    echo "<img class=\"pic\" src=\"images/cloudy.jpg\"> 
+		    echo "<fieldset id=\"picBack\"><img class=\"pic\" src=\"images/cloudy.jpg\"> 
 			<p class=\"city\">台北</p>
 	<p class=\"low\">".$low[1]."</p>
 	<p class=\"high\">".$high[1]."</p>
-	<p class=\"now\">".$now."</p>";
+	<p class=\"now\">".$now."</p></fieldset>";
 		}
 		 else {
-		      echo "<img class=\"pic\" src=\"images/cloudy.jpg\"> 
+		      echo "<fieldset id=\"picBack\"><img class=\"pic\" src=\"images/cloudy.jpg\"> 
 			<p class=\"city\">台北</p>
 	<p class=\"low\">".$low[1]."</p>
 	<p class=\"high\">".$high[1]."</p>
-	<p class=\"now\">".$now."</p>";	  }
+	<p class=\"now\">".$now."</p></fieldset>";	  }
 ?>
 <div id="bar" class="barc">  </div>
 
@@ -278,7 +278,25 @@ for($i=1;$i<=5;$i++){
 		<div class="instruction3" style="display:none">
 			<img src="images/in3.png"" id="ins3" width="100%" height="100%">
 		</div>	
-	
+		<fieldset id="rightText">
+		
+		<p><br>
+		<span id="rinnerText">
+		最近記事...
+		</span>
+		</p><br>
+			<fieldset id="rinnerContent">
+				<ul type="SQARE">
+					<li id="t1">
+					不知道為什麼寫程式要送酒	</li><br>
+					<li id="t2">
+					竹蘺上停留著蜻蜓，玻璃瓶裡插滿小小森林。</li><br>
+					<li id="t3">颱風外圍環流影響 週末各地有雨</li><br>
+					<li id="t4">柯羅莎外圍雲系影響 雙北市、東北部防豪雨</li><br>
+				</ul>
+			
+			</fieldset>
+		</fieldset>
 	
 		<img id="insertImg" src="images/add.png" width="100" height="100">	
 		<div id="addData" style="width:480px;height:300px">

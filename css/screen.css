@@ -114,7 +114,7 @@ h1 {
 
 h2 {
 	font-size:22px;
-	font-weight:400;
+	font-weight:900;
 	margin:5px 0;
 	letter-spacing:.1em;
 }
@@ -368,6 +368,20 @@ dl.timelineMinor {
 	display: none;
 	z-index: 99; 
  }  
+#picBack
+{
+	position:fixed;
+	top:97px;
+	left:3px;
+	
+
+	border:1px solid #000000;
+	width:200px;
+	height:700px;
+	background-color:#EEEEEE;
+	
+}
+
 
 #searchText
 {
@@ -382,7 +396,58 @@ dl.timelineMinor {
                                           
 }
 
+#rightText
+{
+	position:fixed;
+	top:100px;
+	left:1000px;
+	border:1px solid #000000;
+	width:300px;
+	height:420px;
+	background-color:#EEEEEE;
+	color:
 
+}
+#rinnerText
+{
+	position:fixed;
+	
+	top:100px;
+	left:1000px;
+	border:3px solid #000000;
+	width:180;
+	height:20px;
+	font-size:20px;
+	background-color:#111111;
+	color:white;
+	-webkit-border-radius: 4px;
+	padding: 5px 5px;
+	margin: 10px 10px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#rinnerContent{
+position:fixed;
+	
+	top:140px;
+	left:1010px;
+	border:1px solid #000000;
+	width:180;
+	height:350px;
+	font-size:20px;
+	background-color:#CCCCFF;
+	color:#111111;
+	-webkit-border-radius: 4px;
+	padding: 5px 5px;
+	margin: 10px 10px;
+	font-family: Arial, Helvetica, sans-serif;
+
+}
+ul{
+	font-size:17px;
+	font-family: Arial, Helvetica, sans-serif;
+
+}
 
 
 
