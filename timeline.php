@@ -20,6 +20,7 @@
 	
 	 <script>
 	 var ids = new Array();
+	 var count=0;
 	 function unsearch(){
 		$.timeliner({
 				startOpen:['#19540517EX']
@@ -396,13 +397,13 @@ for($i=1;$i<=5;$i++){
 			});
         
 			$("#meBtn").click(function() {
-				FB.api('/me/feed?limit=25&since=1374933543&date_format=U&fields=id,message,created_time,picture,place', function(response){
+				FB.api('/me/feed?limit=100&date_format=U&fields=id,message,created_time,picture,place', function(response){
 					var data = response.data;
 					var id, msg, time;
 					var picture;
 					var place;
-					
-					$.each(data, function(index, value) {
+					//$("#infotest").append(data.length);
+					/*$.each(data, function(index, value) {
 						id = value.id;
 						msg = value.message;
 						time = new Date(value.created_time * 1000); //1383060917
@@ -411,7 +412,16 @@ for($i=1;$i<=5;$i++){
 						if(msg) {
 							insertFbMsg(time, msg);
 						}					
-					})
+					})*/
+					for(var i = 0; i < data.length; i++) {
+						id = data[i].id;
+						msg = data[i].message;
+						time = new Date(data[i].created_time * 1000);
+						$("#infotest").append("https://www.facebook.com/" + id.replace("_", "/posts/") + "<br>");
+						if(msg) {
+							insertFbMsg(time, msg);
+						}
+					}
 					/*
 								
 					
@@ -446,7 +456,6 @@ for($i=1;$i<=5;$i++){
 			});
 		
 			function insertFbMsg(time, msg) {
-				alert(monthName[ timeFormat(time).substring(4, 6) - 1 ]);
 				var major = $("h2.timelineMajorMarker:contains('" + monthName[ timeFormat(time).substring(4, 6) - 1 ] + "')").parent();
 				var minor = '<dl class="timelineMinor">' + 
 								'<dt id="' + timeFormat(time) + '"><a>' + msg.substring(0, 5) + '...</a></dt>' +
@@ -456,6 +465,8 @@ for($i=1;$i<=5;$i++){
 									'<br class="clear">' +
 								'</dd>' +
 							'</d1>';
+				ids[count]=parseInt(timeFormat(time));
+				count++;
 				major.append(minor);
 			}
 			
@@ -519,6 +530,7 @@ for($i=1;$i<=5;$i++){
 
     <input type="button" id="meBtn" value="取得使用者貼文" />
 	<input type="button" id="fun" value="test" />
+	<span id="infotest">00000000000000000test</span>
 	
 	
 	<?php
