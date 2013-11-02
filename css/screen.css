@@ -410,10 +410,27 @@ dl.timelineMinor {
 	top:70px;
 	left:1000px;
 
-	width:300px;
-	height:330px;
-	background-color:#EEEEEE;
-	color:
+	border: 1px solid #f2e3d2;
+   background: #4c7874;
+   background: -webkit-gradient(linear, left top, left bottom, from(#d1eff0), to(#4c7874));
+   background: -webkit-linear-gradient(top, #d1eff0, #4c7874);
+   background: -moz-linear-gradient(top, #d1eff0, #4c7874);
+   background: -ms-linear-gradient(top, #d1eff0, #4c7874);
+   background: -o-linear-gradient(top, #d1eff0, #4c7874);
+   background-image: -ms-linear-gradient(top, #d1eff0 0%, #4c7874 100%);
+   -webkit-border-radius: 30px;
+   -moz-border-radius: 30px;
+   border-radius: 30px;
+   -webkit-box-shadow: rgba(000,000,000,0.9) 0 1px 2px, inset rgba(255,255,255,0.4) 0 1px 0;
+   -moz-box-shadow: rgba(000,000,000,0.9) 0 1px 2px, inset rgba(255,255,255,0.4) 0 1px 0;
+   box-shadow: rgba(000,000,000,0.9) 0 1px 2px, inset rgba(255,255,255,0.4) 0 1px 0;
+   font-family: 'Helvetica Neue',Helvetica,sans-serif;
+   text-decoration: none;
+   vertical-align: middle;
+   min-width:300px;
+   padding:20px;
+   width:300px;
+   height:350px;
 
 }
 #rinnerText
@@ -422,38 +439,59 @@ dl.timelineMinor {
 	
 	top:70px;
 	left:1000px;
-	border:3px solid #000000;
-	width:100px;
-	height:20px;
-	font-size:20px;
-	background-color:#111111;
-	color:white;
-	-webkit-border-radius: 4px;
-	padding: 5px 5px;
-	margin: 10px 10px;
-	font-family: Arial, Helvetica, sans-serif;
+	border: 1px solid #a6abad;
+    background: #8bbaa0;
+    background: -webkit-gradient(linear, left top, left bottom, from(#b9e094), to(#8bbaa0));
+    background: -webkit-linear-gradient(top, #b9e094, #8bbaa0);
+    background: -moz-linear-gradient(top, #b9e094, #8bbaa0);
+    background: -ms-linear-gradient(top, #b9e094, #8bbaa0);
+    background: -o-linear-gradient(top, #b9e094, #8bbaa0);
+    background-image: -ms-linear-gradient(top, #b9e094 0%, #8bbaa0 100%);
+    padding: 10.5px 21px;
+   -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   border-radius: 6px;
+   -webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   -moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   text-shadow: #7ea4bd 0 1px 0;
+   color: #08161f;
+   font-size: 25px;
+   font-family: helvetica, serif;
+   text-decoration: none;
+   vertical-align: middle;
 }
 
 #rinnerContent{
 	position:fixed;
 	top:120px;
 	left:1010px;
-	border:1px solid #000000;
-	width:280px;
+	width:150px;
 	height:260px;
-	font-size:20px;
-	background-color:#CCCCFF;
-	color:#111111;
-	-webkit-border-radius: 4px;
-	padding: 5px 5px;
-	margin: 10px 10px;
-	font-family: Arial, Helvetica, sans-serif;
+	border: 1px solid #f2e3d2;
+   background: #aac9a7;
+   background: -webkit-gradient(linear, left top, left bottom, from(#faefb9), to(#aac9a7));
+   background: -webkit-linear-gradient(top, #faefb9, #aac9a7);
+   background: -moz-linear-gradient(top, #faefb9, #aac9a7);
+   background: -ms-linear-gradient(top, #faefb9, #aac9a7);
+   background: -o-linear-gradient(top, #faefb9, #aac9a7);
+   background-image: -ms-linear-gradient(top, #faefb9 0%, #aac9a7 100%);
+   -webkit-border-radius: 30px;
+   -moz-border-radius: 30px;
+   border-radius: 30px;
+   -webkit-box-shadow: rgba(000,000,000,0.9) 0 1px 2px, inset rgba(255,255,255,0.4) 0 1px 0;
+   -moz-box-shadow: rgba(000,000,000,0.9) 0 1px 2px, inset rgba(255,255,255,0.4) 0 1px 0;
+   box-shadow: rgba(000,000,000,0.9) 0 1px 2px, inset rgba(255,255,255,0.4) 0 1px 0;
+   font-family: 'Helvetica Neue',Helvetica,sans-serif;
+   text-decoration: none;
+   vertical-align: middle;
+   min-width:300px;
 
 }
 ul{
 	font-size:17px;
-	font-family: Arial, Helvetica, sans-serif;
-
+	font-weight: 900;
+	color: #725129;
 }
 
 
