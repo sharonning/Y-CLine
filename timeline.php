@@ -274,14 +274,12 @@ for($i=1;$i<=5;$i++){
 		<div class="mask">
 		</div>
 		
-			<img src="images/in1.png"  style="display:none" id="ins1" width="100%" height="100%">  
-		
-		
-			<img src="images/in2.png" id="ins2" style="display:none" width="100%" height="100%">  
-		
-		
-			<img src="images/in3.png" id="ins3" style="display:none" width="100%" height="100%">
-		
+			<img src="images/ins1.png"  style="display:none" id="ins1" width="100%" height="100%">  
+			<img src="images/ins2.png" id="ins2" style="display:none" width="100%" height="100%">  
+			<img src="images/ins3.png" id="ins3" style="display:none" width="100%" height="100%">
+			<img src="images/ins4.png" id="ins4" style="display:none" width="100%" height="100%">
+			<img src="images/ins5.png" id="ins5" style="display:none" width="100%" height="100%">
+			<img src="images/ins6.png" id="ins6" style="display:none" width="100%" height="100%">
 		<fieldset id="rightText">
 		
 		<p><br>
@@ -292,9 +290,9 @@ for($i=1;$i<=5;$i++){
 			<fieldset id="rinnerContent">
 				<ul type="square">
 					<li id="t1">
-					不知道為什麼寫程式要送酒	</li><br>
+					福懋混油，經部決撤銷GMP	</li><br>
 					<li id="t2">
-					竹蘺上停留著蜻蜓，玻璃瓶裡插滿小小森林。</li><br>
+					警：潑糞案 不排除雙方有糾紛</li><br>
 					<li id="t3">颱風外圍環流影響 週末各地有雨</li><br>
 					<li id="t4">柯羅莎外圍雲系影響 雙北市、東北部防豪雨</li><br>
 				</ul>

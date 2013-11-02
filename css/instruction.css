@@ -1,14 +1,13 @@
 #ins1
 {
 	position: fixed; 
-	top:200px;
-	bottom:100px;
-	left:800px;
-	right:200px;
+	top:150px;
+	bottom:400px;
+	left:450px;
+	right:400px;
 	display: none; 
-	width: 270px; 
-	height: 500px;
-	background: #EEEEEE; 
+	width: 300px; 
+	height: 300px;
 	z-index: 101; 
 }
 #ins2
@@ -20,8 +19,7 @@
 	right:200px;
 	display: none; 
 	width: 270px; 
-	height: 500px;
-	background: #EEEEEE; 
+	height: 500px; 
 	z-index: 101; 
 }
 #ins3
@@ -34,6 +32,43 @@
 	display: none; 
 	width: 270px; 
 	height: 500px;
-	background: #EEEEEE; 
+	z-index: 101; 
+}
+#ins4
+{
+	position: fixed; 
+	top:100px;
+	bottom:100px;
+	left:100px;
+	right:200px;
+	display: none; 
+	width: 270px; 
+	height: 500px; 
+	z-index: 101; 
+}
+
+#ins5
+{
+	position: fixed; 
+	top:100px;
+	bottom:100px;
+	left:100px;
+	right:200px;
+	display: none; 
+	width: 270px; 
+	height: 500px;
+	z-index: 101; 
+}
+
+#ins6
+{
+	position: fixed; 
+	top:100px;
+	bottom:100px;
+	left:100px;
+	right:200px;
+	display: none; 
+	width: 270px; 
+	height: 500px; 
 	z-index: 101; 
 }

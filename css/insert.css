@@ -13,9 +13,9 @@ textarea:focus {
 
 #addData{
 	position:fixed;
-	top:500px;
+	top:420px;
 	bottom:550px;
-	left:1050;
+	left:1020px;
 	right:0px;
 	-webkit-border-radius: 28px;
     -moz-border-radius: 28px;
