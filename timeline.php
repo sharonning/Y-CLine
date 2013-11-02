@@ -31,20 +31,20 @@ for($i=1;$i<=5;$i++){
   }
     
 		  if(strpos($status[1],"lear")>-1){
-		    echo "<body background=\"images/sunny.png\">";
+		    echo "<img class=\"pic\" src=\"images/sunny.png\"> ";
 		 }else if(strpos($status[1],"ain")>-1){
-		      echo "<body background=\"images/sunny.png\">";
+		       echo "<img class=\"pic\" src=\"images/sunny.png\"> ";
 		  }
 		 else if(strpos($status[1],"hunderstorms")>-1){
-		       echo "<body background=\"images/sunny.png\">";		  }
+		         echo "<img class=\"pic\" src=\"images/sunny.png\"> ";		  }
 		else  if(strpos($status[1],"loudy")>-1){
-		    echo "<body background=\"images/sunny.png\">";		  }
+		      echo "<img class=\"pic\" src=\"images/sunny.png\"> ";		  }
 		 else {
-		     echo "<body background=\"images/sunny.png\">";		  }
- 
+		      echo "<img class=\"pic\" src=\"images/sunny.png\"> ";	  }
 ?>
-
-
+<div id="bar" class="barc"> </div>
+<div id="bar2" class="barc2"> </div>
+<img class="logo" src="images/logo.png">
 	<div class="container">
 		
 		<div id="timelineContainer">

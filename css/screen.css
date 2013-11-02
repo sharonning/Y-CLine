@@ -19,10 +19,20 @@ formw {
   text-align:right;
 }
 
-.word{
-
-color:GREEN;
-font-size:24px;
+.pic{
+position: fixed;
+width:200px;
+  height:500px;
+   top:120px; 
+  left:13px; 
+}
+.logo{
+position: fixed;
+width:150px;
+  height:50px;
+    top:5px; 
+  left:10px; 
+  z-index:2;
 }
 
 .container {
@@ -30,6 +40,7 @@ font-size:24px;
 	margin-left:auto;
 	margin-right:auto;
 	padding:10px;
+	
 	*zoom:1;
 }
 
@@ -82,7 +93,6 @@ textarea{
 	line-height:0;
 	font-size:0;
 }
-
 #addData{
 	position:fixed;
 	top:400px;
@@ -116,9 +126,34 @@ textarea{
 /* ============ TIMELINE ============= */
 
 div#timelineContainer {
+    position:relative;
+	
 	border-left:2px solid #ccc;
 	margin:20px auto;
 	width:900px;
+	
+	}
+.barc{
+  width:1500px;
+  height:60px;
+}
+.barc2{
+  width:1500px;
+  height:60px;
+}
+
+div#bar {
+    position:fixed;
+	border-top:60px solid #2f2f2f;
+	width:1500px;
+	z-index:1;
+}
+div#bar2{
+    position:fixed;
+	border-top:60px solid white;
+	top:60px;
+	width:1500px;
+	z-index:1;
 }
 
 div#monkey {
