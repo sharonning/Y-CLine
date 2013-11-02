@@ -16,8 +16,8 @@
 			speed: 4, // value: numeric, defalut to 4; a multiplier applied to the base speed that sets the speed at which an event's conents are displayed and hidden
 			fontOpen: '1.2em', // value: any valid CSS font-size value, defaults to 1em; sets the font size of an event after it is opened
 			fontClosed: '1em', // value: any valid CSS font-size value, defaults to 1em; sets the font size of an event after it is closed
-			expandAllText: '+ expand all', // value: string, sets the text of the expandAll selector after the timeline is fully collapsed
-			collapseAllText: '- collapse all' // // value: string, sets the text of the expandAll selector after the timeline is fully expanded
+			expandAllText: '展開全部', // value: string, sets the text of the expandAll selector after the timeline is fully collapsed
+			collapseAllText: '回收全部' // // value: string, sets the text of the expandAll selector after the timeline is fully expanded
 		}, options);
 
 		$(document).ready(function() {

@@ -1,12 +1,28 @@
 /* ======= DEMO LAYOUT ======= */
 
 body {
-	background-color:#2f2f2f;
-	color:#eeefef;
+	background-color:white;
+    background-repeat: no-repeat; 
+    background-size:1300px 800px;
+	background-attachment:fixed;
+	color:black;
 	font-size:62.5%;
 	font-family:Arial, Helvetica, sans-serif;
 	margin:0;
 	padding:0;
+}
+
+formw {
+  position: fixed;
+  width:1700px;
+  height:400px;
+  text-align:right;
+}
+
+.word{
+
+color:GREEN;
+font-size:24px;
 }
 
 .container {
@@ -57,11 +73,44 @@ p {
 	font-weight:400;
 	line-height:1.6em;
 }
+textarea{
+	resize:none;
 
+}
 .clear {
 	clear:both;
 	line-height:0;
 	font-size:0;
+}
+
+#addData{
+	position:fixed;
+	top:400px;
+	bottom:800px;
+	left:900px;
+	right:0px;
+}
+
+#insertImg{
+	position:fixed;
+	top:400px;
+	bottom:800px;
+	left:1100px;
+	right:0px;
+
+}
+
+#weatherimg{
+	display:none;
+	position:relative;
+	left:230px;
+	bottom:300px;
+}
+
+#taipei, #taichung, #kaoshong{
+	font-family:Verdana;
+	font-size:15px;
+	font-weight:bold;
 }
 
 /* ============ TIMELINE ============= */
@@ -72,6 +121,12 @@ div#timelineContainer {
 	width:900px;
 }
 
+div#monkey {
+	float:left;
+	position:fixed;
+	left:415px;
+}
+
 div.timelineToggle {
 	float:right;
 	margin-right:0;
@@ -79,6 +134,7 @@ div.timelineToggle {
 }
 
 a.expandAll {
+    position: fixed;
 	color:#ccc;
 	cursor:pointer;
 	background:#000;
@@ -167,7 +223,7 @@ dl.timelineMinor {
 	}
 
 		.timelineMinor dd h3 {
-			color:#FFF;
+			color:black;
 			clear:both;
 			float:left;
 			font-size:1.5em;
@@ -232,3 +288,55 @@ dl.timelineMinor {
 	.timelineEvent .media a:hover {
 		color:#7DBADF;
 	}
+.mask 
+ { 
+	position: fixed; 
+	top: 0; 
+	left: 0; 
+	width: 100%;
+	height: 100%; 
+	background: #000;
+	opacity: 0.5; 
+	alpha(opacity=50); 
+	display: none;
+	z-index: 99; 
+ }  
+.instruction1
+{
+	position: fixed; 
+	top:200px;
+	bottom:100px;
+	left:800px;
+	right:200px;
+	display: none; 
+	width: 270px; 
+	height: 500px;
+	background: #EEEEEE; 
+	z-index: 101; 
+}
+.instruction2
+{
+	position: fixed; 
+	top:200px;
+	bottom:100px;
+	left:300px;
+	right:200px;
+	display: none; 
+	width: 270px; 
+	height: 500px;
+	background: #EEEEEE; 
+	z-index: 101; 
+}
+.instruction3
+{
+	position: fixed; 
+	top:100px;
+	bottom:100px;
+	left:100px;
+	right:200px;
+	display: none; 
+	width: 270px; 
+	height: 500px;
+	background: #EEEEEE; 
+	z-index: 101; 
+}
