@@ -194,7 +194,29 @@
 			<br class="clear">
 		</div><!-- /#timelineContainer -->
 	</div><!-- /.container -->
-
+	
+		<div id="addData" style="width:480px;height:300px">
+			<img id="insertImg" src="images/add.png" width="100" height="100">	
+			<form id="insertForm" style="display:none;-webkit-border-radius: 28px;">
+			 &nbsp &nbsp &nbsp &nbsp
+				<p><span id="taipei" style="background-color:#BBBBBB;width:90px;height:20px">
+				台北</span>
+				<span id="taichung" style="background-color:#BBBBBB;width:90px;height:20px">
+				台中</span>
+				<span id="kaoshong" style="background-color:#BBBBBB;width:90px;height:20px">
+				高雄</span>
+				
+				<br>
+				<input type="date" name="user_date" /><br>
+				<textarea  id="insertTextTitle" type="text" name="user_data_title" placeholder="標題是..."  rows=1 cols=20 ></textarea><br>
+				<textarea  id="insertText" type="text" name="user_data" placeholder="輸入點什麼呢..."  rows=3 cols=30 ></textarea><br>
+				  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+				   &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+					&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+				<input type="button" id="send" value="加入" />
+				   <input type="button" id="cancel" value="重寫" /></p>
+			</form>
+		</div>
 	
 
 	<!-- GLOBAL CORE SCRIPTS -->
