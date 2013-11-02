@@ -1,8 +1,10 @@
-function insertForm()
+﻿function insertForm()
 {
 		$("#insertImg").click(function(){
 			$("#insertImg").hide(500);
 			$("#insertForm").show(800);
+			$("#insertForm").css("z-index","1");
+			$("#addData").css("z-index","1");
 		});
 		
 		$("#insertImg").hover(
@@ -17,7 +19,9 @@ function insertForm()
 		$("#cancel").click(function(){
 		$("#insertImg").show(500);
 		$("#insertForm").hide(500);
-	
+		$("#insertForm").css("z-index","-1");
+		$("#addData").css("z-index","-1");
+		$("#area").html("選擇行程地點");
 	});
 	
 	$("#send").click(function(){
@@ -26,9 +30,10 @@ function insertForm()
 		var data = $('textarea[name="user_data"]').val();
 		var data_title = $('textarea[name="user_data_title"]').val();
 		var result = date.split("-");
+		$("#insertForm").css("z-index","30");
 		if(date == ""|| data=="" || data_title=="")
 		{
-			alert("��Ʀn�����ֶ�@ :D");
+			alert("好像有資料沒填完哦:D");
 			return 0;
 		}
 		//alert(result[1]);
@@ -56,6 +61,48 @@ function insertForm()
 		$('textarea[name="user_data_title"]').val('');
 		$('input[name="user_date"]').val('');
 	});
+	
+
+		/**********area click function************/
+		
+		$("#area").click(function(){
+			$("#taiwan").show(300);
+		});
+		
+		
+		$("#area,#taipei,#taichung,#tainan,#kaoshong,#pingdong").hover(
+			function(){
+				$(this).css("color","#330099");
+
+			},	
+			function(){
+			$(this).css("color","#fff");
+		
+		});
+	
+	
+	$("#taipei,#taichung,#tainan,#kaoshong,#pingdong").click(function(){
+		$("#taiwan").hide(300);
+		$("#area").html($(this).html());
+		var number = 1 + Math.floor(Math.random() * 5);
+		switch (number)
+		{
+			case 1 :$("#insertForm").css("background-image","url(images/taipei.jpg)");	break;
+			
+			case 2 :$("#insertForm").css("background-image","url(images/taichung.jpg)");break;
+			
+			case 3 :$("#insertForm").css("background-image","url(images/tainan.jpg)");break;
+			
+			case 4 :$("#insertForm").css("background-image","url(images/kaoshong.jpg)");break;
+			
+			case 5 :$("#insertForm").css("background-image","url(images/pingdong.jpg)");break;
+		
+		
+		}
+		
+	});
+	
+	
 	
 		
 		

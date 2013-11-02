@@ -7,7 +7,20 @@
 	<link rel="stylesheet" href="css/responsive.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="css/insert.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="inc/colorbox.css" type="text/css" media="screen">
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="inc/colorbox.js"></script>
+	<script type="text/javascript" src="js/timeliner.min.js"></script>
+	<script type="text/javascript" src="js/insert.js"></script>
+	<SCRIPT LANGUAGE="javascript" SRC="js/instruction.js"></SCRIPT>
+	 <script>
+	 function unsearch(){
+		$.timeliner({
+				
+			});
+			// Colorbox Modal
+			$(".CBmodal").colorbox({inline:true, initialWidth:100, maxWidth:682, initialHeight:100, transition:"elastic",speed:750});
+		}</script>
 </head>
 <?php
 error_reporting(0);
@@ -44,15 +57,22 @@ for($i=1;$i<=5;$i++){
 		 else {
 		      echo "<img class=\"pic\" src=\"images/sunny.png\"> ";	  }
 ?>
-<div id="bar" class="barc"> </div>
-<div id="bar2" class="barc2"> </div>
+<div id="bar" class="barc"><div class="timelineToggle"><p><a class="expandAll">展開全部</a></p></div> </div>
+
 <img class="logo" src="images/logo.png">
+ <formw>  
+	
+	<form  action="timeline.php?s=Y" method="post">
+　	<p class="word">SEARCH<input type="text" name="Keyword" size="20">
+	</p>
+	</form>
+	 </formw> 
+	 
 	<div class="container">
 		
 		<div id="timelineContainer">
 
-			<div class="timelineToggle"><p><a class="expandAll">展開全部</a></p></div>
-
+			
 			<br class="clear">
 
 			<div class="timelineMajor">
@@ -232,19 +252,28 @@ for($i=1;$i<=5;$i++){
 			<br class="clear">
 		</div><!-- /#timelineContainer -->
 	</div><!-- /.container -->
-	
+		<img id="insertImg" src="images/add.png" width="100" height="100">	
 		<div id="addData" style="width:480px;height:300px">
-			<img id="insertImg" src="images/add.png" width="100" height="100">	
+			
 			<form id="insertForm" style="display:none;-webkit-border-radius: 28px;">
+			
 			 &nbsp &nbsp &nbsp &nbsp
-				<p><span id="taipei" style="background-color:#BBBBBB;width:90px;height:20px">
-				台北</span>
-				<span id="taichung" style="background-color:#BBBBBB;width:90px;height:20px">
-				台中</span>
-				<span id="kaoshong" style="background-color:#BBBBBB;width:90px;height:20px">
-				高雄</span>
+				<p><span id="area"  align="center" style="width:200px;height:20px">
+				選擇行程地點</span>
+				<span id="taiwan" style="display:none">
+					<span id="taipei" style="width:90px;height:20px">
+					台北</span>
+					<span id="taichung" style="width:90px;height:20px">
+					台中</span>
+					<span id="tainan" style="width:90px;height:20px">
+					台南</span>
+					<span id="kaoshong" style="width:90px;height:20px">
+					高雄</span>
+					<span id="pingdong" style="width:90px;height:20px">
+					屏東</span>
+				</span>
+				<br><br>
 				
-				<br>
 				<input type="date" name="user_date" /><br>
 				<textarea  id="insertTextTitle" type="text" name="user_data_title" placeholder="標題是..."  rows=1 cols=20 ></textarea><br>
 				<textarea  id="insertText" type="text" name="user_data" placeholder="輸入點什麼呢..."  rows=3 cols=30 ></textarea><br>
@@ -256,12 +285,23 @@ for($i=1;$i<=5;$i++){
 			</form>
 		</div>
 	
+<script>
+			function findID(key){
+				var ids=new Array(20130517,20130216,20130128,20120828,20120601,19570904,19610504,19630828,19640702,19640701,19641014);
+				for (var i=0;i<ids.length;i++){ 
+					var id=ids[i]*10;
+					var context= document.getElementById(id).innerHTML;
+					if(context.indexOf(key) > -1){
+						document.location.href="timeline.php?i=Y&id="+ids[i];
+					break;
+					}
 
-	<!-- GLOBAL CORE SCRIPTS -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script type="text/javascript" src="inc/colorbox.js"></script>
-	<script type="text/javascript" src="js/timeliner.min.js"></script>
-	<script type="text/javascript" src="js/insert.js"></script>
+				}
+			}
+	</script>
+	
+	
+	
 	<div id="fb-root"></div>
     <script>
 		// 載入 SDK' source code 後執行此 function
@@ -419,5 +459,28 @@ for($i=1;$i<=5;$i++){
 
     <input type="button" id="meBtn" value="取得使用者貼文" />
 	<input type="button" id="fun" value="test" />
+	
+	
+	<?php
+error_reporting(0);
+$search = $_GET[s]; 
+$isID = $_GET[i];
+$ID = $_GET[id];
+if(strcmp($search,"Y")==0){
+  $keyword=$_POST[Keyword];
+  echo"<script>findID(\"". $keyword."\");</script>";
+}else if(strcmp($isID,"Y")==0){
+  echo"<script>
+			$.timeliner({
+				startOpen:['#".$ID."EX']
+			});
+			// Colorbox Modal
+			$(\".CBmodal\").colorbox({inline:true, initialWidth:100, maxWidth:682, initialHeight:100, transition:\"elastic\",speed:750});
+	</script>";
+}else{
+  echo"<script>unsearch();</script>";
+}
+
+?>
 </body>
 </html>
