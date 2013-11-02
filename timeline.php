@@ -27,7 +27,8 @@
 			});
 			// Colorbox Modal
 			$(".CBmodal").colorbox({inline:true, initialWidth:100, maxWidth:682, initialHeight:100, transition:"elastic",speed:750});
-		}</script>
+		}
+	</script>
 </head>
 <?php
 error_reporting(0);
@@ -71,7 +72,8 @@ for($i=1;$i<=5;$i++){
 <div id="bar" class="barc">  </div>
 
 <img class="logo" src="images/logo.png">
-<img src="images/googleLoginIcon.png" style="position:fixed;top:15px;right:80px;z-index:2;">
+
+<input type="image" src="images/googleLoginIcon.png" id="google" style="position:fixed;top:15px;right:80px;z-index:2;" />
 <img src="images/FBLoginIcon.png" style="position:fixed;top:15px;right:40px;z-index:2;">
 
  <formw>  
@@ -395,6 +397,20 @@ for($i=1;$i<=5;$i++){
 			$("#fbLogoutBtn").click(function(){
 			  logoutFB();
 			});
+			
+			$("#google").click(function(){
+				$.ajax({		
+					url: 'calendar.php',
+					success:function(response){
+					alert("aa"); 
+					},		
+					error:function(xhr, ajaxOptions, thrownError){ 
+						alert(xhr.status); 
+						alert(thrownError); 
+					}
+				});
+			  
+			});
         
 			$("#meBtn").click(function() {
 				FB.api('/me/feed?limit=100&date_format=U&fields=id,message,created_time,picture,place', function(response){
@@ -454,7 +470,22 @@ for($i=1;$i<=5;$i++){
 							'</d1>';
 				major.append(minor);
 			});
-		
+			
+			function insertFbMsg(time, msg) {
+				var major = $("h2.timelineMajorMarker:contains('" + monthName[ timeFormat(time).substring(4, 6) - 1 ] + "')").parent();
+				var minor = '<dl class="timelineMinor">' + 
+								'<dt id="' + timeFormat(time) + '"><a>' + msg.substring(0, 5) + '...</a></dt>' +
+								'<dd class="timelineEvent" id="' + timeFormat(time) + 'EX" style="display:none;">' +
+									'<h3>' + dateText(time) + '</h3>' +
+									'<p id="' + timeFormat(time) + '0">' + msg + '</p>' +
+									'<br class="clear">' +
+								'</dd>' +
+							'</d1>';
+				ids[count]=parseInt(timeFormat(time));
+				count++;
+				major.append(minor);
+			}
+			
 			function insertFbMsg(time, msg) {
 				var major = $("h2.timelineMajorMarker:contains('" + monthName[ timeFormat(time).substring(4, 6) - 1 ] + "')").parent();
 				var minor = '<dl class="timelineMinor">' + 
