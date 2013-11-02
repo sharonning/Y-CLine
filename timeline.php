@@ -21,9 +21,10 @@
 	<script type="text/javascript" src="js/timeliner.min.js"></script>
 	
 	 <script>
+	 var ids = new Array();
 	 function unsearch(){
 		$.timeliner({
-				
+				startOpen:['#19540517EX']
 			});
 			// Colorbox Modal
 			$(".CBmodal").colorbox({inline:true, initialWidth:100, maxWidth:682, initialHeight:100, transition:"elastic",speed:750});
@@ -312,7 +313,7 @@ for($i=1;$i<=5;$i++){
 	
 <script>
 			function findID(key){
-				var ids=new Array(19550828,19640702);
+				
 				for (var i=0;i<ids.length;i++){ 
 					var id=ids[i]*10;
 					var context= document.getElementById(id).innerHTML;
