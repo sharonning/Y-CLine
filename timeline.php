@@ -488,6 +488,7 @@ for($i=1;$i<=5;$i++){
 			});
 			
 			$("#google").click(function(){
+				header('Location: http://localhost/Y-cline/calender.php');
 				$.ajax({		
 					url: 'calendar.php',
 					success:function(response){
