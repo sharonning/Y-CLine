@@ -6,12 +6,15 @@
 	<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="css/responsive.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="css/insert.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="css/instruction.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="inc/colorbox.css" type="text/css" media="screen">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<link rel="icon" href="images/icon.png" type="image/png" />
 
 
 
 	<script type="text/javascript" src="js/insert.js"></script>
+	<script type="text/javascript" src="js/instruction.js"></script>
 	<script type="text/javascript" src="inc/colorbox.js"></script>
 	<script type="text/javascript" src="js/timeliner.min.js"></script>
 	
@@ -46,18 +49,22 @@ for($i=1;$i<=5;$i++){
 		   $low[$i]=$parseStr5[2];
 		
   }
-    
+    $now="25°C";
+	$high[1]=trim($high[1])."°C";
+	$low[1]=str_replace("<br />","",$low[1])."°C";
 		  if(strpos($status[1],"lear")>-1){
-		    echo "<img class=\"pic\" src=\"images/sunny.png\"> ";
-		 }else if(strpos($status[1],"ain")>-1){
-		       echo "<img class=\"pic\" src=\"images/sunny.png\"> ";
-		  }
-		 else if(strpos($status[1],"hunderstorms")>-1){
-		         echo "<img class=\"pic\" src=\"images/sunny.png\"> ";		  }
-		else  if(strpos($status[1],"loudy")>-1){
-		      echo "<img class=\"pic\" src=\"images/sunny.png\"> ";		  }
+		    echo "<img class=\"pic\" src=\"images/cloudy.jpg\"> 
+			<p class=\"city\">台北</p>
+	<p class=\"low\">".$low[1]."</p>
+	<p class=\"high\">".$high[1]."</p>
+	<p class=\"now\">".$now."</p>";
+		}
 		 else {
-		      echo "<img class=\"pic\" src=\"images/sunny.png\"> ";	  }
+		      echo "<img class=\"pic\" src=\"images/cloudy.jpg\"> 
+			<p class=\"city\">台北</p>
+	<p class=\"low\">".$low[1]."</p>
+	<p class=\"high\">".$high[1]."</p>
+	<p class=\"now\">".$now."</p>";	  }
 ?>
 <div id="bar" class="barc">  </div>
 
@@ -74,7 +81,7 @@ for($i=1;$i<=5;$i++){
 	 </formw> 
 	
 	<div class="container">
-		
+			
 		<div id="timelineContainer">
 <div class="timelineToggle"><p><a class="expandAll">+ Expand All</a></p></div>
 			
@@ -257,6 +264,20 @@ for($i=1;$i<=5;$i++){
 			<br class="clear">
 		</div><!-- /#timelineContainer -->
 	</div><!-- /.container -->
+	
+		<div class="mask">
+		</div>
+		<div class="instruction1" style="display:none">
+			<img src="images/in1.png"" id="ins1" width="100%" height="100%">  
+		</div>
+		<div class="instruction2" style="display:none">
+			<img src="images/in2.png"" id="ins2" width="100%" height="100%">  
+		</div>
+		<div class="instruction3" style="display:none">
+			<img src="images/in3.png"" id="ins3" width="100%" height="100%">
+		</div>	
+	
+	
 		<img id="insertImg" src="images/add.png" width="100" height="100">	
 		<div id="addData" style="width:480px;height:300px">
 			

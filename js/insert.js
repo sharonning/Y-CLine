@@ -17,11 +17,12 @@
 		
 		
 		$("#cancel").click(function(){
-		$("#insertImg").show(500);
-		$("#insertForm").hide(500);
-		$("#insertForm").css("z-index","-1");
-		$("#addData").css("z-index","-1");
-		$("#area").html("選擇行程地點");
+			$("#insertImg").show(500);
+			$("#insertForm").hide(500);
+			$("#insertForm").css("z-index","-1");
+			$("#addData").css("z-index","-1");
+			$("#area").html("選擇行程地點");
+			$("#insertForm").css("background-image","url()");
 	});
 	
 	$("#send").click(function(){
