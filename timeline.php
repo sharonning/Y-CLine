@@ -20,6 +20,7 @@
 	
 	 <script>
 	 var ids = new Array();
+	 var count=0;
 	 function unsearch(){
 		$.timeliner({
 				startOpen:['#19540517EX']
@@ -438,6 +439,8 @@ for($i=1;$i<=5;$i++){
 									'<br class="clear">' +
 								'</dd>' +
 							'</d1>';
+				ids[count]=parseInt(timeFormat(time));
+				count++;
 				major.append(minor);
 			}
 			
