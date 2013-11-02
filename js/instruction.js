@@ -4,7 +4,8 @@ function instruction()
          $(".mask").css("display","block");  
 		 
 		 $("#ins1").show(1000);
-		 
+		  $("#ins3h").show(1000);
+		  
 		  $("#ins1").click(function(){
 		  	$("#ins1").hide(1000);
 			$("#ins2").show(1000);
