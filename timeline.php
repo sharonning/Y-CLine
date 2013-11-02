@@ -10,8 +10,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 
-
-	<script type="text/javascript" src="js/insert.js"></script>
+    <script type="text/javascript" src="js/insert.js"></script>
 
 	<script type="text/javascript" src="inc/colorbox.js"></script>
 	<script type="text/javascript" src="js/timeliner.min.js"></script>
@@ -47,18 +46,22 @@ for($i=1;$i<=5;$i++){
 		   $low[$i]=$parseStr5[2];
 		
   }
-    
+    $now="25°C";
+	$high[1]=trim($high[1])."°C";
+	$low[1]=str_replace("<br />","",$low[1])."°C";
 		  if(strpos($status[1],"lear")>-1){
-		    echo "<img class=\"pic\" src=\"images/sunny.png\"> ";
-		 }else if(strpos($status[1],"ain")>-1){
-		       echo "<img class=\"pic\" src=\"images/sunny.png\"> ";
-		  }
-		 else if(strpos($status[1],"hunderstorms")>-1){
-		         echo "<img class=\"pic\" src=\"images/sunny.png\"> ";		  }
-		else  if(strpos($status[1],"loudy")>-1){
-		      echo "<img class=\"pic\" src=\"images/sunny.png\"> ";		  }
+		    echo "<img class=\"pic\" src=\"images/cloudy.jpg\"> 
+			<p class=\"city\">台北</p>
+	<p class=\"low\">".$low[1]."</p>
+	<p class=\"high\">".$high[1]."</p>
+	<p class=\"now\">".$now."</p>";
+		}
 		 else {
-		      echo "<img class=\"pic\" src=\"images/sunny.png\"> ";	  }
+		      echo "<img class=\"pic\" src=\"images/cloudy.jpg\"> 
+			<p class=\"city\">台北</p>
+	<p class=\"low\">".$low[1]."</p>
+	<p class=\"high\">".$high[1]."</p>
+	<p class=\"now\">".$now."</p>";	  }
 ?>
 <div id="bar" class="barc">  </div>
 
@@ -75,7 +78,7 @@ for($i=1;$i<=5;$i++){
 	 </formw> 
 	
 	<div class="container">
-		
+			
 		<div id="timelineContainer">
 <div class="timelineToggle"><p><a class="expandAll">+ Expand All</a></p></div>
 			

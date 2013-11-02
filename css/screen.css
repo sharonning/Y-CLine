@@ -24,9 +24,10 @@ formw {
 .pic{
 position: fixed;
 width:200px;
-  height:500px;
+  height:530px;
    top:120px; 
   left:13px; 
+ box-shadow:4px 4px 3px rgba(20%,20%,40%,0.5);
 }
 .logo{
 position: fixed;
@@ -35,6 +36,49 @@ width:180px;
     top:5px; 
   left:10px; 
   z-index:2;
+}
+
+
+.city{
+position: fixed;
+font-family:DFKai-sb;
+color: white;
+font-size:60px;
+font-weight: 900;
+top:400px; 
+ left:40px; 
+ text-shadow:6px  6px  6px black;
+
+}
+.now{
+position: fixed;
+font-family:DFKai-sb;
+color:white;
+font-size:50px;
+font-weight: 900;
+top:480px; 
+ left:15px; 
+ text-shadow:6px  6px  6px black;
+}
+.low{
+position: fixed;
+font-family:DFKai-sb;
+color:white;
+font-size:28px;
+font-weight: 900;
+top:515px; 
+ left:135px; 
+ text-shadow:6px  6px  6px black;
+}
+.high{
+position: fixed;
+font-family:DFKai-sb;
+color:orange;
+font-size:28px;
+font-weight: 900;
+top:480px; 
+ left:135px; 
+text-shadow:6px  6px  6px black;
 }
 
 
