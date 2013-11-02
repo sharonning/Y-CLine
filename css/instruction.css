@@ -1,4 +1,4 @@
-.instruction1
+#ins1
 {
 	position: fixed; 
 	top:200px;
@@ -11,7 +11,7 @@
 	background: #EEEEEE; 
 	z-index: 101; 
 }
-.instruction2
+#ins2
 {
 	position: fixed; 
 	top:200px;
@@ -24,7 +24,7 @@
 	background: #EEEEEE; 
 	z-index: 101; 
 }
-.instruction3
+#ins3
 {
 	position: fixed; 
 	top:100px;
