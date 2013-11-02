@@ -95,7 +95,7 @@ textarea:focus {
    text-decoration: none;
    vertical-align: middle;
 	outline: none; 
-
+cursor: pointer;
 }
 
 #send:hover ,#cancel:hover {
