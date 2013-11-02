@@ -73,45 +73,14 @@ p {
 	font-weight:400;
 	line-height:1.6em;
 }
-textarea{
-	resize:none;
 
-}
 .clear {
 	clear:both;
 	line-height:0;
 	font-size:0;
 }
 
-#addData{
-	position:fixed;
-	top:400px;
-	bottom:800px;
-	left:900px;
-	right:0px;
-}
 
-#insertImg{
-	position:fixed;
-	top:400px;
-	bottom:800px;
-	left:1100px;
-	right:0px;
-
-}
-
-#weatherimg{
-	display:none;
-	position:relative;
-	left:230px;
-	bottom:300px;
-}
-
-#taipei, #taichung, #kaoshong{
-	font-family:Verdana;
-	font-size:15px;
-	font-weight:bold;
-}
 
 /* ============ TIMELINE ============= */
 

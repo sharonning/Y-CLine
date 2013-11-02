@@ -1,8 +1,10 @@
-function insertForm()
+ï»¿function insertForm()
 {
 		$("#insertImg").click(function(){
 			$("#insertImg").hide(500);
 			$("#insertForm").show(800);
+			$("#insertForm").css("z-index","1");
+			$("#addData").css("z-index","1");
 		});
 		
 		$("#insertImg").hover(
@@ -17,7 +19,8 @@ function insertForm()
 		$("#cancel").click(function(){
 		$("#insertImg").show(500);
 		$("#insertForm").hide(500);
-	
+		$("#insertForm").css("z-index","-1");
+		$("#addData").css("z-index","-1");
 	});
 	
 	$("#send").click(function(){
@@ -26,9 +29,10 @@ function insertForm()
 		var data = $('textarea[name="user_data"]').val();
 		var data_title = $('textarea[name="user_data_title"]').val();
 		var result = date.split("-");
+		$("#insertForm").css("z-index","30");
 		if(date == ""|| data=="" || data_title=="")
 		{
-			alert("¸ê®Æ¦n¹³¦³¤Ö¶ñ®@ :D");
+			alert("å¥½åƒæœ‰è³‡æ–™æ²’å¡«å®Œå“¦:D");
 			return 0;
 		}
 		//alert(result[1]);
@@ -56,6 +60,32 @@ function insertForm()
 		$('textarea[name="user_data_title"]').val('');
 		$('input[name="user_date"]').val('');
 	});
+	
+
+		/**********area click function************/
+		
+		$("#area").click(function(){
+			$("#taiwan").show(500);
+		});
+		
+		
+		$("#area,#taipei,#taichung,#tainan,#kaoshong,#pingdong").hover(
+			function(){
+				$(this).css("color","#330099");
+
+			},	
+			function(){
+			$(this).css("color","#fff");
+		
+		});
+	
+	
+	$("#taipei,#taichung,#tainan,#kaoshong,#pingdong").click(function(){
+		$("#taiwan").hide(500);
+		$("#area").html($(this).html());
+	});
+	
+	
 	
 		
 		

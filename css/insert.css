@@ -1,4 +1,4 @@
-textarea{
+﻿textarea{
 	resize:none;
 	-webkit-border-radius: 10px;
 	outline: none; 
@@ -17,7 +17,8 @@ textarea:focus {
 	right:0px;
 	-webkit-border-radius: 28px;
     -moz-border-radius: 28px;
-    border-radius: 28px;
+    border-radius: 20px;
+	z-index:-1;
 }
 
 #insertImg{
@@ -26,17 +27,28 @@ textarea:focus {
 	bottom:800px;
 	left:1100px;
 	right:0px;
+	cursor: pointer;
+	z-index:5;
 
 }
 #insertForm{
-	background-image: url("/Github/timeline/images/rain.jpg");
-
+	background-image: url("/Github/timeline/images/rain1.jpg");
+	z-index:-1;
 }
 
-#taipei, #taichung, #kaoshong{
-	font-family:Verdana;
-	font-size:15px;
-	font-weight:bold;
+
+
+#area,#taipei, #taichung,#tainan, #kaoshong,#pingdong
+{
+	background-color:#000;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#fff;
+	-webkit-border-radius: 4px;
+	border: 1px solid #fff;
+	padding: 3px 5px;
+	cursor: pointer;
+
 }
 
 
