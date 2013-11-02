@@ -31,12 +31,16 @@ if (isset($_SESSION['token'])) {
 if ($client->getAccessToken()) {
   $calList = $cal->calendarList->listCalendarList();
  // print "<h1>Calendar List</h1><pre>" . print_r($calList, true) . "</pre>";
-  $events = $cal->events->listEvents('TzuYuan.Chung@gmail.com');
+  $optParam = array("orderBy" => "updated");
+  $events = $cal->events->listEvents('TzuYuan.Chung@gmail.com', $optParam);
  // print "<h1>Events</h1><pre>" . print_r($events, true) . "</pre>";
   foreach ($events->getItems() as $event) {
     echo $event->getSummary();
+	echo ';';
 	echo $event->getDescription();
+	echo ';';
 	echo $event->getStart()->getDatetime();
+	echo ';';
   }
     
   
