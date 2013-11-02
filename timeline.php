@@ -274,14 +274,12 @@ for($i=1;$i<=5;$i++){
 		<div class="mask">
 		</div>
 		
-			<img src="images/in1.png"  style="display:none" id="ins1" width="100%" height="100%">  
-		
-		
-			<img src="images/in2.png" id="ins2" style="display:none" width="100%" height="100%">  
-		
-		
-			<img src="images/in3.png" id="ins3" style="display:none" width="100%" height="100%">
-		
+			<img src="images/ins1.png"  style="display:none" id="ins1" width="100%" height="100%">  
+			<img src="images/ins2.png" id="ins2" style="display:none" width="100%" height="100%">  
+			<img src="images/ins3.png" id="ins3" style="display:none" width="100%" height="100%">
+			<img src="images/ins4.png" id="ins4" style="display:none" width="100%" height="100%">
+			<img src="images/ins5.png" id="ins5" style="display:none" width="100%" height="100%">
+			<img src="images/ins6.png" id="ins6" style="display:none" width="100%" height="100%">
 		<fieldset id="rightText">
 		
 		<p><br>
