@@ -8,11 +8,10 @@
 	<link rel="stylesheet" href="css/insert.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="inc/colorbox.css" type="text/css" media="screen">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	
 	<script type="text/javascript" src="inc/colorbox.js"></script>
 	<script type="text/javascript" src="js/timeliner.min.js"></script>
-	<script type="text/javascript" src="js/insert.js"></script>
-	<SCRIPT LANGUAGE="javascript" SRC="js/instruction.js"></SCRIPT>
+	
 	 <script>
 	 function unsearch(){
 		$.timeliner({
@@ -57,9 +56,10 @@ for($i=1;$i<=5;$i++){
 		 else {
 		      echo "<img class=\"pic\" src=\"images/sunny.png\"> ";	  }
 ?>
-<div id="bar" class="barc"><div class="timelineToggle"><p><a class="expandAll">展開全部</a></p></div> </div>
+<div id="bar" class="barc">  </div>
 
 <img class="logo" src="images/logo.png">
+
  <formw>  
 	
 	<form  action="timeline.php?s=Y" method="post">
@@ -67,11 +67,11 @@ for($i=1;$i<=5;$i++){
 	</p>
 	</form>
 	 </formw> 
-	 
+	
 	<div class="container">
 		
 		<div id="timelineContainer">
-
+<div class="timelineToggle"><p><a class="expandAll">展開全部</a></p></div>
 			
 			<br class="clear">
 
@@ -260,7 +260,6 @@ for($i=1;$i<=5;$i++){
 			 &nbsp &nbsp &nbsp &nbsp
 				<p><span id="area"  align="center" style="width:200px;height:20px">
 				選擇行程地點</span>
-				<span id="taiwan" style="display:none">
 					<span id="taipei" style="width:90px;height:20px">
 					台北</span>
 					<span id="taichung" style="width:90px;height:20px">
@@ -271,8 +270,7 @@ for($i=1;$i<=5;$i++){
 					高雄</span>
 					<span id="pingdong" style="width:90px;height:20px">
 					屏東</span>
-				</span>
-				<br><br>
+				<br>
 				
 				<input type="date" name="user_date" /><br>
 				<textarea  id="insertTextTitle" type="text" name="user_data_title" placeholder="標題是..."  rows=1 cols=20 ></textarea><br>
@@ -341,10 +339,6 @@ for($i=1;$i<=5;$i++){
 			});
 		}
 		$(document).ready(function() {
-			$.timeliner({
-			});
-			// Colorbox Modal
-			$(".CBmodal").colorbox({inline:true, initialWidth:100, maxWidth:682, initialHeight:100, transition:"elastic",speed:750});
 			
 			$("#fbLoginBtn").click(function(){
 			  loginFB();
