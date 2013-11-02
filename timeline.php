@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="inc/colorbox.css" type="text/css" media="screen">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-	<script type="text/javascript" src="js/insert.min.js"></script>
+
 
 	<script type="text/javascript" src="js/insert.js"></script>
 
@@ -67,7 +67,9 @@ for($i=1;$i<=5;$i++){
  <formw>  
 	
 	<form  action="timeline.php?s=Y" method="post">
-　	<p class="word">SEARCH<input type="text"  name="Keyword" size="20">
+
+　	<p class="word">SEARCH<input type="text" name="Keyword" size="50">
+
 	</p>
 	</form>
 	 </formw> 
@@ -115,7 +117,7 @@ for($i=1;$i<=5;$i++){
 								</div>
 						</div><!-- /.media -->
 
-						<p>
+						<p id="195508280">
 							Fourteen-year-old African-American Emmett Till is brutally murdered after reportedly flirting with a white woman while visiting relatives in Mississippi. For the first time, both black and white reporters cover the trial epitomizing “one of the most shocking and enduring stories of the twentieth century.”<sup>2</sup> The white defendants, Roy Bryant and J.W. Milam, are acquitted by an all-white jury in only 67 minutes; later they describe in full detail to Look magazine (which paid them $4,000) how they killed Till.<sup>3</sup> His mother insists on an open casket funeral, and the powerful image of his mutilated body sparks a strong reaction across the country and the world.</p>
 
 						<br class="clear">
@@ -236,7 +238,7 @@ for($i=1;$i<=5;$i++){
 					<dt id="19640702"><a>Civil Rights Act</a></dt>
 					<dd class="timelineEvent" id="19640702EX" style="display:none;">
 						<h3>July 2, 1964</h3>
-						<p>
+						<p id="196407020">
 							President Lyndon B. Johnson signs the Civil Rights Act of 1964, mandating equal opportunity employment, and complete desegregation of schools and other public facilities. It also outlaws unequal voter registration requirements.<sup>13</sup> Although it would take years for these changes to take effect in communities around the country, the law is a monumental victory for the civil rights movement.</p>
 
 							<br class="clear">
@@ -289,7 +291,7 @@ for($i=1;$i<=5;$i++){
 	
 <script>
 			function findID(key){
-				var ids=new Array(20130517,20130216,20130128,20120828,20120601,19570904,19610504,19630828,19640702,19640701,19641014);
+				var ids=new Array(19550828,19640702);
 				for (var i=0;i<ids.length;i++){ 
 					var id=ids[i]*10;
 					var context= document.getElementById(id).innerHTML;
