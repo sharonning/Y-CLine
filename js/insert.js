@@ -66,7 +66,7 @@
 		/**********area click function************/
 		
 		$("#area").click(function(){
-			$("#taiwan").show(300);
+			$("#taipei,#taichung,#tainan,#kaoshong,#pingdong").show(300);
 		});
 		
 		
@@ -82,7 +82,7 @@
 	
 	
 	$("#taipei,#taichung,#tainan,#kaoshong,#pingdong").click(function(){
-		$("#taiwan").hide(300);
+		$("#taipei,#taichung,#tainan,#kaoshong,#pingdong").fadeOut(300);
 		$("#area").html($(this).html());
 		var number = 1 + Math.floor(Math.random() * 5);
 		switch (number)
