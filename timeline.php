@@ -299,7 +299,7 @@ for($i=1;$i<=5;$i++){
 			</fieldset>
 		</fieldset>
 	
-		<img id="insertImg" src="images/add.png" width="100" height="100">	
+		<img id="insertImg" src="images/add.png" width="90" height="90">	
 		<div id="addData" style="width:480px;height:300px">
 			
 			<form id="insertForm" style="display:none;-webkit-border-radius: 28px;">
