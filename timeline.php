@@ -20,10 +20,10 @@
 	
 	 <script>
 	 var ids = new Array();
-	 var count=0;
+	 
 	 function unsearch(){
 		$.timeliner({
-				startOpen:['#19540517EX']
+				startOpen:['#195405170000EX']
 			});
 			// Colorbox Modal
 			$(".CBmodal").colorbox({inline:true, initialWidth:100, maxWidth:682, initialHeight:100, transition:"elastic",speed:750});
@@ -94,8 +94,8 @@ for($i=1;$i<=5;$i++){
 			<div class="timelineMajor">
 				<h2 class="timelineMajorMarker"><span>2013 December</span></h2>
 				<dl class="timelineMinor">
-					<dt id="19540517"><a>Brown v. Board of Education</a></dt>
-					<dd class="timelineEvent" id="19540517EX" style="display:none;">
+					<dt id="195405170000"><a>Brown v. Board of Education</a></dt>
+					<dd class="timelineEvent" id="195405170000EX" style="display:none;">
 						<h3>May 17, 1954</h3>
 						<p>
 							The U.S. Supreme Court hands down a unanimous 9-0 decision in the Brown v. Board of Education of Topeka case, opening the door for the civil rights movement and ultimately racial integration in all aspects of U.S. society. In overturning Plessy v. Ferguson (1896), the court rules that “separate educational facilities are inherently unequal.”<sup>1</sup></p>
@@ -332,16 +332,28 @@ for($i=1;$i<=5;$i++){
 	
 <script>
 			function findID(key){
+			     var point=0;
 				
 				for (var i=0;i<ids.length;i++){ 
 					var id=ids[i]*10;
 					var context= document.getElementById(id).innerHTML;
 					if(context.indexOf(key) > -1){
 						document.location.href="timeline.php?i=Y&id="+ids[i];
+						point=1;
 					break;
+					}
+					if(point==0){
+					document.location.href="timeline.php";
 					}
 
 				}
+			}
+			function open(){
+			$.timeliner({
+				startOpen:[ID]
+			});
+			// Colorbox Modal
+			$(".CBmodal").colorbox({inline:true, initialWidth:100, maxWidth:682, initialHeight:100, transition:"elastic",speed:750});
 			}
 	</script>
 	
@@ -349,6 +361,8 @@ for($i=1;$i<=5;$i++){
 	
 	<div id="fb-root"></div>
     <script>
+	    var count=0;
+		var tmp=0;
 		// 載入 SDK' source code 後執行此 function
 		window.fbAsyncInit = function() {
 			// init the FB JS SDK
@@ -365,12 +379,21 @@ for($i=1;$i<=5;$i++){
 			$(window).triggerHandler('fbAsyncInit');
 			FB.getLoginStatus(function(response){
 				loadFb();
+			if(tmp==1){
+			setTimeout("findID(keyword)", 3000 )
+			}else if(tmp==2){
+			setTimeout("open()", 3000 )
+			}else{
+			}
+		
+				
+				
 			});
 		};
       
 		//設定 FB 登入 function
 		function loginFB(){
-
+             
 			// perms(string): 使用者同意之權限。
 			var perms = 'read_stream';
 			
@@ -418,6 +441,8 @@ for($i=1;$i<=5;$i++){
 							'</dd>' +
 						'</d1>';
 			major.append(minor);
+			ids[count]=parseInt(timeFormat(time));
+			count++;
 		}
 		
 		function timeFormat(date) {
@@ -510,22 +535,6 @@ for($i=1;$i<=5;$i++){
 				major.append(minor);
 			});
 
-		
-			function insertFbMsg(time, msg) {
-				var major = $("h2.timelineMajorMarker:contains('" + monthName[ timeFormat(time).substring(4, 6) - 1 ] + "')").parent();
-				var minor = '<dl class="timelineMinor">' + 
-								'<dt id="' + timeFormat(time) + '"><a>' + msg.substring(0, 5) + '...</a></dt>' +
-								'<dd class="timelineEvent" id="' + timeFormat(time) + 'EX" style="display:none;">' +
-									'<h3>' + dateText(time) + '</h3>' +
-									'<p id="' + timeFormat(time) + '0">' + msg + '</p>' +
-									'<br class="clear">' +
-								'</dd>' +
-							'</d1>';
-				ids[count]=parseInt(timeFormat(time));
-				count++;
-				major.append(minor);
-			}
-			
 			function insertMedia() {
 				var media = '<div class="media">' + 
 								'<a href="#inline-1963-08-287" class="CBmodal"><img src="http://img.youtube.com/vi/gvAQE66jwcg/0.jpg" width="240" height="180" alt="Related Video: Black Press"></a>'
@@ -576,14 +585,12 @@ $isID = $_GET[i];
 $ID = $_GET[id];
 if(strcmp($search,"Y")==0){
   $keyword=$_POST[Keyword];
-  echo"<script>findID(\"". $keyword."\");</script>";
+  echo"<script>tmp=1;
+  keyword=\"". $keyword."\";</script>";
 }else if(strcmp($isID,"Y")==0){
   echo"<script>
-			$.timeliner({
-				startOpen:['#".$ID."EX']
-			});
-			// Colorbox Modal
-			$(\".CBmodal\").colorbox({inline:true, initialWidth:100, maxWidth:682, initialHeight:100, transition:\"elastic\",speed:750});
+			tmp=2;
+			var ID='#".$ID."EX';
 	</script>";
 }else{
   echo"<script>unsearch();</script>";
