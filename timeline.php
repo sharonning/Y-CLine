@@ -19,9 +19,10 @@
 	<script type="text/javascript" src="js/timeliner.min.js"></script>
 	
 	 <script>
+	 var ids = new Array();
 	 function unsearch(){
 		$.timeliner({
-				
+				startOpen:['#19540517EX']
 			});
 			// Colorbox Modal
 			$(".CBmodal").colorbox({inline:true, initialWidth:100, maxWidth:682, initialHeight:100, transition:"elastic",speed:750});
@@ -53,28 +54,30 @@ for($i=1;$i<=5;$i++){
 	$high[1]=trim($high[1])."°C";
 	$low[1]=str_replace("<br />","",$low[1])."°C";
 		  if(strpos($status[1],"lear")>-1){
-		    echo "<img class=\"pic\" src=\"images/cloudy.jpg\"> 
+		    echo "<fieldset id=\"picBack\"><img class=\"pic\" src=\"images/cloudy.jpg\"> 
 			<p class=\"city\">台北</p>
 	<p class=\"low\">".$low[1]."</p>
 	<p class=\"high\">".$high[1]."</p>
-	<p class=\"now\">".$now."</p>";
+	<p class=\"now\">".$now."</p></fieldset>";
 		}
 		 else {
-		      echo "<img class=\"pic\" src=\"images/cloudy.jpg\"> 
+		      echo "<fieldset id=\"picBack\"><img class=\"pic\" src=\"images/cloudy.jpg\"> 
 			<p class=\"city\">台北</p>
 	<p class=\"low\">".$low[1]."</p>
 	<p class=\"high\">".$high[1]."</p>
-	<p class=\"now\">".$now."</p>";	  }
+	<p class=\"now\">".$now."</p></fieldset>";	  }
 ?>
 <div id="bar" class="barc">  </div>
 
 <img class="logo" src="images/logo.png">
+<img src="images/googleLoginIcon.png" style="position:fixed;top:15px;right:80px;z-index:2;">
+<img src="images/FBLoginIcon.png" style="position:fixed;top:15px;right:40px;z-index:2;">
 
  <formw>  
 	
 	<form  action="timeline.php?s=Y" method="post">
 
-　	<p class="word">Search：<input type="text" id="searchText" placeholder="找找以前發生的大事..." name="Keyword" size="40">
+　	<p class="word">Search <input type="text" id="searchText" placeholder=" 找找以前發生的大事..." name="Keyword" size="40">
 
 	</p>
 	</form>
@@ -88,7 +91,7 @@ for($i=1;$i<=5;$i++){
 			<br class="clear">
 
 			<div class="timelineMajor">
-				<h2 class="timelineMajorMarker"><span>2013, December</span></h2>
+				<h2 class="timelineMajorMarker"><span>2013 December</span></h2>
 				<dl class="timelineMinor">
 					<dt id="19540517"><a>Brown v. Board of Education</a></dt>
 					<dd class="timelineEvent" id="19540517EX" style="display:none;">
@@ -102,7 +105,7 @@ for($i=1;$i<=5;$i++){
 			</div><!-- /.timelineMajor -->
 
 			<div class="timelineMajor">
-				<h2 class="timelineMajorMarker"><span>2013, November</span></h2>
+				<h2 class="timelineMajorMarker"><span>2013 November</span></h2>
 				<dl class="timelineMinor">
 					<dt id="19550828"><a>Emmett Till</a></dt>
 					<dd class="timelineEvent" id="19550828EX" style="display:none;">
@@ -144,7 +147,7 @@ for($i=1;$i<=5;$i++){
 			</div><!-- /.timelineMajor -->
 
 			<div class="timelineMajor">
-				<h2 class="timelineMajorMarker"><span>2013, October</span></h2>
+				<h2 class="timelineMajorMarker"><span>2013 October</span></h2>
 				<dl class="timelineMinor">
 					<dt id="19570904"><a>Little Rock</a></dt>
 					<dd class="timelineEvent" id="19570904EX" style="display:none;">
@@ -174,7 +177,7 @@ for($i=1;$i<=5;$i++){
 			</div><!-- /.timelineMajor -->
 
 			<div class="timelineMajor">
-				<h2 class="timelineMajorMarker"><span>2013, September</span></h2>
+				<h2 class="timelineMajorMarker"><span>2013 September</span></h2>
 				<dl class="timelineMinor">
 					<dt id="19610504"><a>Freedom Rides</a></dt>
 					<dd class="timelineEvent" id="19610504EX" style="display:none;">
@@ -203,7 +206,7 @@ for($i=1;$i<=5;$i++){
 			</div><!-- /.timelineMajor -->
 
 			<div class="timelineMajor">
-				<h2 class="timelineMajorMarker"><span>2013, August</span></h2>
+				<h2 class="timelineMajorMarker"><span>2013 August</span></h2>
 				<dl class="timelineMinor">
 					<dt id="19630828"><a>"I Have a Dream"</a></dt>
 					<dd class="timelineEvent" id="19630828EX" style="display:none;">
@@ -238,7 +241,7 @@ for($i=1;$i<=5;$i++){
 			</div><!-- /.timelineMajor -->
 
 			<div class="timelineMajor">
-				<h2 class="timelineMajorMarker"><span>2013, July</span></h2>
+				<h2 class="timelineMajorMarker"><span>2013 July</span></h2>
 
 				<dl class="timelineMinor">
 					<dt id="19640702"><a>Civil Rights Act</a></dt>
@@ -276,7 +279,25 @@ for($i=1;$i<=5;$i++){
 		<div class="instruction3" style="display:none">
 			<img src="images/in3.png"" id="ins3" width="100%" height="100%">
 		</div>	
-	
+		<fieldset id="rightText">
+		
+		<p><br>
+		<span id="rinnerText">
+		最近記事...
+		</span>
+		</p><br>
+			<fieldset id="rinnerContent">
+				<ul type="square">
+					<li id="t1">
+					不知道為什麼寫程式要送酒	</li><br>
+					<li id="t2">
+					竹蘺上停留著蜻蜓，玻璃瓶裡插滿小小森林。</li><br>
+					<li id="t3">颱風外圍環流影響 週末各地有雨</li><br>
+					<li id="t4">柯羅莎外圍雲系影響 雙北市、東北部防豪雨</li><br>
+				</ul>
+			
+			</fieldset>
+		</fieldset>
 	
 		<img id="insertImg" src="images/add.png" width="100" height="100">	
 		<div id="addData" style="width:480px;height:300px">
@@ -310,7 +331,7 @@ for($i=1;$i<=5;$i++){
 	
 <script>
 			function findID(key){
-				var ids=new Array(19550828,19640702);
+				
 				for (var i=0;i<ids.length;i++){ 
 					var id=ids[i]*10;
 					var context= document.getElementById(id).innerHTML;
