@@ -69,7 +69,7 @@ for($i=1;$i<=5;$i++){
 	<p class=\"now\">".$now."</p></fieldset>";	  }
 ?>
 <div id="bar" class="barc">  </div>
-
+<img class="pin" src="images/pin.png">
 <img class="logo" src="images/logo.png">
 <img src="images/googleLoginIcon.png" style="position:fixed;top:15px;right:80px;z-index:2;">
 <img src="images/FBLoginIcon.png" style="position:fixed;top:15px;right:40px;z-index:2;">
