@@ -69,7 +69,7 @@ for($i=1;$i<=5;$i++){
 	<p class=\"now\">".$now."</p></fieldset>";	  }
 ?>
 <div id="bar" class="barc">  </div>
-
+<img class="pin" src="images/pin.png">
 <img class="logo" src="images/logo.png">
 <img src="images/googleLoginIcon.png" style="position:fixed;top:15px;right:80px;z-index:2;">
 <img src="images/FBLoginIcon.png" style="position:fixed;top:15px;right:40px;z-index:2;">
@@ -271,15 +271,15 @@ for($i=1;$i<=5;$i++){
 	
 		<div class="mask">
 		</div>
-		<div class="instruction1" style="display:none">
-			<img src="images/in1.png"" id="ins1" width="100%" height="100%">  
-		</div>
-		<div class="instruction2" style="display:none">
-			<img src="images/in2.png"" id="ins2" width="100%" height="100%">  
-		</div>
-		<div class="instruction3" style="display:none">
-			<img src="images/in3.png"" id="ins3" width="100%" height="100%">
-		</div>	
+		
+			<img src="images/in1.png"  style="display:none" id="ins1" width="100%" height="100%">  
+		
+		
+			<img src="images/in2.png" id="ins2" style="display:none" width="100%" height="100%">  
+		
+		
+			<img src="images/in3.png" id="ins3" style="display:none" width="100%" height="100%">
+		
 		<fieldset id="rightText">
 		
 		<p><br>
