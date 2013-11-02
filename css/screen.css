@@ -373,14 +373,11 @@ dl.timelineMinor {
 	position:fixed;
 	top:70px;
 	left:3px;
-<<<<<<< HEAD
 	width:200px;
 	height:540px;
-=======
 	border:2px solid #ccc;
 	width:199px;
 	height:700px;
->>>>>>> 11b0fe683fc22251d9a6f9ab0edeceb5381cf5b3
 	background-color:#EEEEEE;
 	
 }
