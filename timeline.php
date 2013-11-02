@@ -329,7 +329,7 @@ for($i=1;$i<=5;$i++){
 			// FB JavaScript login function
 			FB.login(function(response){
 				// API 回傳 response 值
-				ShowTaoble(response);
+				//ShowTaoble(response);
 			}, { scope: perms } ); // 設定 scope(使用者同意之權限) 參數      
 		}	
       
@@ -337,7 +337,7 @@ for($i=1;$i<=5;$i++){
        
 			// FB JavaScript login function
 			FB.logout(function(response) {
-				ShowTaoble(response);
+				//ShowTaoble(response);
 			});
 		}
 		$(document).ready(function() {
