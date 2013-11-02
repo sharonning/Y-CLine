@@ -17,6 +17,7 @@
 	<script type="text/javascript" src="js/instruction.js"></script>
 	<script type="text/javascript" src="inc/colorbox.js"></script>
 	<script type="text/javascript" src="js/timeliner.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.min.js"></script>
 	
 	 <script>
 	 var ids = new Array();
@@ -275,22 +276,21 @@ for($i=1;$i<=5;$i++){
 		</div>
 		
 			<img src="images/ins1.png"  style="display:none" id="ins1" width="100%" height="100%">
-			<img src="images/1.png"  style="display:none" id="ins1h" width="100%" height="100%">  
 			
 			<img src="images/ins2.png" id="ins2" style="display:none" width="100%" height="100%">  
-			<img src="images/2.png"  style="display:none" id="ins2h" width="100%" height="100%"> 
+			
 			
 			<img src="images/ins3.png" id="ins3" style="display:none" width="100%" height="100%">
-			<img src="images/3.png"  style="display:none" id="ins3h" width="100%" height="100%">  
+			 
 			
 			<img src="images/ins4.png" id="ins4" style="display:none" width="100%" height="100%">
-			<img src="images/4.png"  style="display:none" id="ins4h" width="100%" height="100%">  
+			
 			
 			<img src="images/ins5.png" id="ins5" style="display:none" width="100%" height="100%">
-			<img src="images/5.png"  style="display:none" id="ins5h" width="100%" height="100%">  
+			 
 			
 			<img src="images/ins6.png" id="ins6" style="display:none" width="100%" height="100%">
-			<img src="images/6.png"  style="display:none" id="ins6h" width="100%" height="100%">  
+			
 		<fieldset id="rightText">
 		
 		<p><br>
@@ -488,7 +488,6 @@ for($i=1;$i<=5;$i++){
 			});
 			
 			$("#google").click(function(){
-				header('Location: http://localhost/Y-cline/calender.php');
 				$.ajax({		
 					url: 'calendar.php',
 					success:function(response){
