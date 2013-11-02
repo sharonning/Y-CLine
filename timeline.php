@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="css/insert.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="inc/colorbox.css" type="text/css" media="screen">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script type="text/javascript" src="js/insert.js"></script>
+	
 	<script type="text/javascript" src="inc/colorbox.js"></script>
 	<script type="text/javascript" src="js/timeliner.min.js"></script>
 	
@@ -56,9 +56,10 @@ for($i=1;$i<=5;$i++){
 		 else {
 		      echo "<img class=\"pic\" src=\"images/sunny.png\"> ";	  }
 ?>
-<div id="bar" class="barc">  <div class="timelineToggle"><p><a class="expandAll">+ Expand All</a></p></div></div>
+<div id="bar" class="barc">  </div>
 
 <img class="logo" src="images/logo.png">
+
  <formw>  
 	
 	<form  action="timeline.php?s=Y" method="post">
@@ -70,7 +71,7 @@ for($i=1;$i<=5;$i++){
 	<div class="container">
 		
 		<div id="timelineContainer">
-
+<div class="timelineToggle"><p><a class="expandAll">展開全部</a></p></div>
 			
 			<br class="clear">
 
