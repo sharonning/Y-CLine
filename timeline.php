@@ -7,7 +7,20 @@
 	<link rel="stylesheet" href="css/responsive.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="css/insert.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="inc/colorbox.css" type="text/css" media="screen">
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="inc/colorbox.js"></script>
+	<script type="text/javascript" src="js/timeliner.min.js"></script>
+	<script type="text/javascript" src="js/insert.js"></script>
+	<SCRIPT LANGUAGE="javascript" SRC="js/instruction.js"></SCRIPT>
+	 <script>
+	 function unsearch(){
+		$.timeliner({
+				
+			});
+			// Colorbox Modal
+			$(".CBmodal").colorbox({inline:true, initialWidth:100, maxWidth:682, initialHeight:100, transition:"elastic",speed:750});
+		}</script>
 </head>
 <?php
 error_reporting(0);
@@ -44,15 +57,22 @@ for($i=1;$i<=5;$i++){
 		 else {
 		      echo "<img class=\"pic\" src=\"images/sunny.png\"> ";	  }
 ?>
-<div id="bar" class="barc"> </div>
-<div id="bar2" class="barc2"> </div>
+<div id="bar" class="barc"><div class="timelineToggle"><p><a class="expandAll">展開全部</a></p></div> </div>
+
 <img class="logo" src="images/logo.png">
+ <formw>  
+	
+	<form  action="timeline.php?s=Y" method="post">
+　	<p class="word">SEARCH<input type="text" name="Keyword" size="20">
+	</p>
+	</form>
+	 </formw> 
+	 
 	<div class="container">
 		
 		<div id="timelineContainer">
 
-			<div class="timelineToggle"><p><a class="expandAll">展開全部</a></p></div>
-
+			
 			<br class="clear">
 
 			<div class="timelineMajor">
@@ -256,12 +276,23 @@ for($i=1;$i<=5;$i++){
 			</form>
 		</div>
 	
+<script>
+			function findID(key){
+				var ids=new Array(20130517,20130216,20130128,20120828,20120601,19570904,19610504,19630828,19640702,19640701,19641014);
+				for (var i=0;i<ids.length;i++){ 
+					var id=ids[i]*10;
+					var context= document.getElementById(id).innerHTML;
+					if(context.indexOf(key) > -1){
+						document.location.href="timeline.php?i=Y&id="+ids[i];
+					break;
+					}
 
-	<!-- GLOBAL CORE SCRIPTS -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script type="text/javascript" src="inc/colorbox.js"></script>
-	<script type="text/javascript" src="js/timeliner.min.js"></script>
-	<script type="text/javascript" src="js/insert.js"></script>
+				}
+			}
+	</script>
+	
+	
+	
 	<div id="fb-root"></div>
     <script>
 		// 載入 SDK' source code 後執行此 function
@@ -390,5 +421,28 @@ for($i=1;$i<=5;$i++){
 
     <input type="button" id="meBtn" value="取得使用者貼文" />
 	<input type="button" id="fun" value="test" />
+	
+	
+	<?php
+error_reporting(0);
+$search = $_GET[s]; 
+$isID = $_GET[i];
+$ID = $_GET[id];
+if(strcmp($search,"Y")==0){
+  $keyword=$_POST[Keyword];
+  echo"<script>findID(\"". $keyword."\");</script>";
+}else if(strcmp($isID,"Y")==0){
+  echo"<script>
+			$.timeliner({
+				startOpen:['#".$ID."EX']
+			});
+			// Colorbox Modal
+			$(\".CBmodal\").colorbox({inline:true, initialWidth:100, maxWidth:682, initialHeight:100, transition:\"elastic\",speed:750});
+	</script>";
+}else{
+  echo"<script>unsearch();</script>";
+}
+
+?>
 </body>
 </html>
