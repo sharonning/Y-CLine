@@ -21,6 +21,7 @@
 		$("#insertForm").hide(500);
 		$("#insertForm").css("z-index","-1");
 		$("#addData").css("z-index","-1");
+		$("#area").html("選擇行程地點");
 	});
 	
 	$("#send").click(function(){
@@ -65,7 +66,7 @@
 		/**********area click function************/
 		
 		$("#area").click(function(){
-			$("#taiwan").show(500);
+			$("#taiwan").show(300);
 		});
 		
 		
@@ -81,8 +82,24 @@
 	
 	
 	$("#taipei,#taichung,#tainan,#kaoshong,#pingdong").click(function(){
-		$("#taiwan").hide(500);
+		$("#taiwan").hide(300);
 		$("#area").html($(this).html());
+		var number = 1 + Math.floor(Math.random() * 5);
+		switch (number)
+		{
+			case 1 :$("#insertForm").css("background-image","url(images/taipei.jpg)");	break;
+			
+			case 2 :$("#insertForm").css("background-image","url(images/taichung.jpg)");break;
+			
+			case 3 :$("#insertForm").css("background-image","url(images/tainan.jpg)");break;
+			
+			case 4 :$("#insertForm").css("background-image","url(images/kaoshong.jpg)");break;
+			
+			case 5 :$("#insertForm").css("background-image","url(images/pingdong.jpg)");break;
+		
+		
+		}
+		
 	});
 	
 	
