@@ -1,0 +1,42 @@
+textarea{
+	resize:none;
+	-webkit-border-radius: 10px;
+	outline: none; 
+	-webkit-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(000,000,000,0.7) 0 1px 1px;
+}
+textarea:focus {
+    box-shadow: inset 0 0 3px 2px #3366FF; 
+                                          
+}
+
+#addData{
+	position:fixed;
+	top:200px;
+	bottom:800px;
+	left:700px;
+	right:0px;
+	-webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
+    border-radius: 28px;
+}
+
+#insertImg{
+	position:fixed;
+	top:400px;
+	bottom:800px;
+	left:1100px;
+	right:0px;
+
+}
+#insertForm{
+	background-image: url("/Github/timeline/images/rain.jpg");
+
+}
+
+#taipei, #taichung, #kaoshong{
+	font-family:Verdana;
+	font-size:15px;
+	font-weight:bold;
+}
+
+

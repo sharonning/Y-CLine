@@ -5,7 +5,9 @@
 	<title>Y!CLine</title>
 	<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="css/responsive.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="css/insert.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="inc/colorbox.css" type="text/css" media="screen">
+	
 </head>
 <?php
 error_reporting(0);
@@ -250,7 +252,7 @@ for($i=1;$i<=5;$i++){
 				   &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
 					&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
 				<input type="button" id="send" value="加入" />
-				   <input type="button" id="cancel" value="重寫" /></p>
+				   <input type="button" id="cancel" value="取消" /></p>
 			</form>
 		</div>
 	
@@ -259,7 +261,7 @@ for($i=1;$i<=5;$i++){
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script type="text/javascript" src="inc/colorbox.js"></script>
 	<script type="text/javascript" src="js/timeliner.min.js"></script>
-
+	<script type="text/javascript" src="js/insert.js"></script>
 	<div id="fb-root"></div>
     <script>
 		// 載入 SDK' source code 後執行此 function
@@ -298,11 +300,8 @@ for($i=1;$i<=5;$i++){
 				ShowTaoble(response);
 			});
 		}
-      
-      $(document).ready(function() {
-        // Handler for .ready() called.
-        $.timeliner({
-				
+		$(document).ready(function() {
+			$.timeliner({
 			});
 			// Colorbox Modal
 			$(".CBmodal").colorbox({inline:true, initialWidth:100, maxWidth:682, initialHeight:100, transition:"elastic",speed:750});
