@@ -2,12 +2,48 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Timeliner.js Demo</title>
+	<title>Y!CLine</title>
 	<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="css/responsive.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="inc/colorbox.css" type="text/css" media="screen">
 </head>
-<body>
+<?php
+error_reporting(0);
+
+$w="2306179";
+$WeatherURL = "http://weather.yahooapis.com/forecastrss?w=".$w."&u=c&format=xml";
+$_result = file_get_contents($WeatherURL);
+$replaceStr=str_replace("Forecast",";",$_result);
+$parseStr1 = explode( ';',$replaceStr);
+$parseStr2= explode( "\n",$parseStr1[1]);
+$status=array();
+$high=array();
+$low=array();
+for($i=1;$i<=5;$i++){
+           $parseStr3= explode( "-",$parseStr2[$i]);
+		   $parseStr4=explode( ".",$parseStr3[1]);
+		   $status[$i]=$parseStr4[0];
+		   $parseStr5=explode( ":",$parseStr4[1]);
+		   $parseStr6=explode("L",$parseStr5[1]);
+		   $high[$i]=$parseStr6[0];
+		   $low[$i]=$parseStr5[2];
+		
+  }
+    
+		  if(strpos($status[1],"lear")>-1){
+		    echo "<body background=\"images/sunny.png\">";
+		 }else if(strpos($status[1],"ain")>-1){
+		      echo "<body background=\"images/sunny.png\">";
+		  }
+		 else if(strpos($status[1],"hunderstorms")>-1){
+		       echo "<body background=\"images/sunny.png\">";		  }
+		else  if(strpos($status[1],"loudy")>-1){
+		    echo "<body background=\"images/sunny.png\">";		  }
+		 else {
+		     echo "<body background=\"images/sunny.png\">";		  }
+ 
+?>
+
 
 	<div class="container">
 		
