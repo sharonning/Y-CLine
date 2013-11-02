@@ -480,7 +480,7 @@ for($i=1;$i<=5;$i++){
 				$.ajax({		
 					url: 'calendar.php',
 					success:function(response){
-					alert("aa"); 
+						insertGoogleMsg(response);
 					},		
 					error:function(xhr, ajaxOptions, thrownError){ 
 						alert(xhr.status); 
@@ -564,19 +564,27 @@ for($i=1;$i<=5;$i++){
 				major.append(minor);
 			}
 			
-			function insertFbMsg(time, msg) {
-				var major = $("h2.timelineMajorMarker:contains('" + monthName[ timeFormat(time).substring(4, 6) - 1 ] + "')").parent();
-				var minor = '<dl class="timelineMinor">' + 
-								'<dt id="' + timeFormat(time) + '"><a>' + msg.substring(0, 5) + '...</a></dt>' +
-								'<dd class="timelineEvent" id="' + timeFormat(time) + 'EX" style="display:none;">' +
-									'<h3>' + dateText(time) + '</h3>' +
-									'<p id="' + timeFormat(time) + '0">' + msg + '</p>' +
-									'<br class="clear">' +
-								'</dd>' +
-							'</d1>';
-				ids[count]=parseInt(timeFormat(time));
-				count++;
-				major.append(minor);
+			function insertGoogleMsg(msg) {
+				var elements = msg.split(";");
+				
+				for(var i = 0; i < elements.length; i++) {
+					var title = elements[i++];
+					var msg =elements[i++];
+					var time = new Date(elements[i]);
+					
+					var major = $("h2.timelineMajorMarker:contains('" + monthName[ timeFormat(time).substring(4, 6) - 1 ] + "')").parent();
+					var minor = '<dl class="timelineMinor">' + 
+									'<dt id="' + timeFormat(time) + '"><a>' + title.substring(0, 5) + '...</a></dt>' +
+									'<dd class="timelineEvent" id="' + timeFormat(time) + 'EX" style="display:none;">' +
+										'<h3>' + dateText(time) + '</h3>' +
+										'<p id="' + timeFormat(time) + '0">' + msg + '</p>' +
+										'<br class="clear">' +
+									'</dd>' +
+								'</d1>';
+					ids[count]=parseInt(timeFormat(time));
+					count++;
+					major.append(minor);
+				}	
 			}
 			
 			function insertMedia() {
