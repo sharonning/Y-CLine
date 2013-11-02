@@ -12,7 +12,6 @@
 
 
 	<script type="text/javascript" src="js/insert.js"></script>
-<script type="text/javascript" src="js/insert.min.js"></script>
 	<script type="text/javascript" src="inc/colorbox.js"></script>
 	<script type="text/javascript" src="js/timeliner.min.js"></script>
 	
@@ -82,7 +81,7 @@ for($i=1;$i<=5;$i++){
 			<br class="clear">
 
 			<div class="timelineMajor">
-				<h2 class="timelineMajorMarker"><span>2013, Dec</span></h2>
+				<h2 class="timelineMajorMarker"><span>2013, December</span></h2>
 				<dl class="timelineMinor">
 					<dt id="19540517"><a>Brown v. Board of Education</a></dt>
 					<dd class="timelineEvent" id="19540517EX" style="display:none;">
@@ -96,7 +95,7 @@ for($i=1;$i<=5;$i++){
 			</div><!-- /.timelineMajor -->
 
 			<div class="timelineMajor">
-				<h2 class="timelineMajorMarker"><span>2013, Nov</span></h2>
+				<h2 class="timelineMajorMarker"><span>2013, November</span></h2>
 				<dl class="timelineMinor">
 					<dt id="19550828"><a>Emmett Till</a></dt>
 					<dd class="timelineEvent" id="19550828EX" style="display:none;">
@@ -138,7 +137,7 @@ for($i=1;$i<=5;$i++){
 			</div><!-- /.timelineMajor -->
 
 			<div class="timelineMajor">
-				<h2 class="timelineMajorMarker"><span>2013, Oct</span></h2>
+				<h2 class="timelineMajorMarker"><span>2013, October</span></h2>
 				<dl class="timelineMinor">
 					<dt id="19570904"><a>Little Rock</a></dt>
 					<dd class="timelineEvent" id="19570904EX" style="display:none;">
@@ -168,7 +167,7 @@ for($i=1;$i<=5;$i++){
 			</div><!-- /.timelineMajor -->
 
 			<div class="timelineMajor">
-				<h2 class="timelineMajorMarker"><span>2013, Sep</span></h2>
+				<h2 class="timelineMajorMarker"><span>2013, September</span></h2>
 				<dl class="timelineMinor">
 					<dt id="19610504"><a>Freedom Rides</a></dt>
 					<dd class="timelineEvent" id="19610504EX" style="display:none;">
@@ -197,7 +196,7 @@ for($i=1;$i<=5;$i++){
 			</div><!-- /.timelineMajor -->
 
 			<div class="timelineMajor">
-				<h2 class="timelineMajorMarker"><span>2013, Aug</span></h2>
+				<h2 class="timelineMajorMarker"><span>2013, August</span></h2>
 				<dl class="timelineMinor">
 					<dt id="19630828"><a>"I Have a Dream"</a></dt>
 					<dd class="timelineEvent" id="19630828EX" style="display:none;">
@@ -344,7 +343,8 @@ for($i=1;$i<=5;$i++){
 			});
 		}
 		$(document).ready(function() {
-			
+			var monthName = ['January', 'February', 'March', 'April', 'May', 'June', 
+			'July', 'August', 'September', 'October', 'November', 'December'];
 			$("#fbLoginBtn").click(function(){
 			  loginFB();
 			});
@@ -354,7 +354,7 @@ for($i=1;$i<=5;$i++){
 			});
         
 			$("#meBtn").click(function() {
-				FB.api('/me/feed?date_format=U&fields=id,message,created_time,picture,place', function(response){
+				FB.api('/me/feed?limit=25&since=1374933543&date_format=U&fields=id,message,created_time,picture,place', function(response){
 					var data = response.data;
 					var id, msg, time;
 					var picture;
@@ -404,12 +404,8 @@ for($i=1;$i<=5;$i++){
 			});
 		
 			function insertFbMsg(time, msg) {
-			/*
-				time = new Date(1383060917 * 1000);
-				msg = "吃飯的時候看惹小淳的康熙，\n就算在不熟的場合反應還是很快欸 XDD\n\n是很討喜的主持人 :3".replace(/\n/g, "<br>");
-				title = msg.substring(0, 5) + "...";
-			*/	
-				var major = $("h2.timelineMajorMarker:contains('" + timeFormat(time).substring(0, 4) + "')").parent();
+				alert(monthName[ timeFormat(time).substring(4, 6) - 1 ]);
+				var major = $("h2.timelineMajorMarker:contains('" + monthName[ timeFormat(time).substring(4, 6) - 1 ] + "')").parent();
 				var minor = '<dl class="timelineMinor">' + 
 								'<dt id="' + timeFormat(time) + '"><a>' + msg.substring(0, 5) + '...</a></dt>' +
 								'<dd class="timelineEvent" id="' + timeFormat(time) + 'EX" style="display:none;">' +
@@ -420,20 +416,42 @@ for($i=1;$i<=5;$i++){
 							'</d1>';
 				major.append(minor);
 			}
+			
+			function insertMedia() {
+				var media = '<div class="media">' + 
+								'<a href="#inline-1963-08-287" class="CBmodal"><img src="http://img.youtube.com/vi/gvAQE66jwcg/0.jpg" width="240" height="180" alt="Related Video: Black Press"></a>'
+			}
+			
+			/*
+						<div class="media">
+							<a href="#inline-1963-08-287" class="CBmodal"><img src="http://img.youtube.com/vi/gvAQE66jwcg/0.jpg" width="240" height="180" alt="Related Video: Black Press"></a>
+							<p class="mediaLink"><a href="#inline-1963-08-287" class="CBmodal" title="Related Video: Black Press">Watch: Black Press</a></p>
+							<div style="display:none">
+								<div id="inline-1963-08-287" class="modalBox">
+									<object>
+										<param name="movie" value="http://www.youtube.com/v/gvAQE66jwcg?fs=1&amp;hd=0&amp;showsearch=0&amp;showinfo=0&amp;width=640&amp;height=380">
+										<param name="allowFullScreen" value="true">
+										<param name="allowScriptAccess" value="always">
+										<embed src="http://www.youtube.com/v/gvAQE66jwcg?fs=1&amp;hd=0&amp;showsearch=0&amp;showinfo=0&amp;width=640&amp;height=380" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="640" height="380">
+										</object>
+									</div>
+								</div>
+						</div>
+			*/
 		
 			function timeFormat(date) {
 				var y = date.getFullYear();
 				var m = date.getMonth() + 1;
-				var d = date.getDate();
-				var hour = date.getHours();
-				var min = date.getMinutes();
+				var d = ("0" + date.getDate()).slice(-2);
+				var hour = ("0" + date.getHours()).slice(-2);
+				var min = ("0" + date.getMinutes()).slice(-2);
 				//return y + "/" + m + "/" + d + "/" + h;
 				//return y + "/" + m + "/" + d;
-				return "" + y + m + d + hour + min;
+				return "" + y + ("0" + m).slice(-2) + d + hour + min;
 			}
 			function dateText(date) {
-				var monthName = ['January', 'February', 'March', 'April', 'May', 'June', 
-				'July', 'August', 'September', 'October', 'November', 'December'];
+				//var monthName = ['January', 'February', 'March', 'April', 'May', 'June', 
+				//'July', 'August', 'September', 'October', 'November', 'December'];
 				var y = date.getFullYear();
 				var m = date.getMonth();
 				var d = date.getDate();
@@ -441,7 +459,8 @@ for($i=1;$i<=5;$i++){
 				return d + " " + monthName[m] + ", " + y;
 			}
         
-		});      
+		});
+		
       
 		// 非同部載入 SDK's source code
 		(function(d){
