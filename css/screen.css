@@ -30,7 +30,7 @@ position: fixed;
 width:200px;
   height:530px;
    top:120px; 
-  left:13px; 
+  left:10px; 
  box-shadow:4px 4px 3px rgba(20%,20%,40%,0.5);
 }
 .logo{
@@ -156,7 +156,7 @@ p {
 
 div#timelineContainer {
     position:relative;
-	top:60px;
+	top:80px;
 	border-left:2px solid #ccc;
 	margin:20px auto;
 	width:900px;
