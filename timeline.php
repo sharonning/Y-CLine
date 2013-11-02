@@ -20,10 +20,10 @@
 	
 	 <script>
 	 var ids = new Array();
-	 var count=0;
+	 
 	 function unsearch(){
 		$.timeliner({
-				startOpen:['#19540517EX']
+				startOpen:['#195405170000EX']
 			});
 			// Colorbox Modal
 			$(".CBmodal").colorbox({inline:true, initialWidth:100, maxWidth:682, initialHeight:100, transition:"elastic",speed:750});
@@ -69,7 +69,7 @@ for($i=1;$i<=5;$i++){
 	<p class=\"now\">".$now."</p></fieldset>";	  }
 ?>
 <div id="bar" class="barc">  </div>
-
+<img class="pin" src="images/pin.png">
 <img class="logo" src="images/logo.png">
 <img src="images/googleLoginIcon.png" style="position:fixed;top:15px;right:80px;z-index:2;">
 <img src="images/FBLoginIcon.png" style="position:fixed;top:15px;right:40px;z-index:2;">
@@ -94,8 +94,8 @@ for($i=1;$i<=5;$i++){
 			<div class="timelineMajor">
 				<h2 class="timelineMajorMarker"><span>2013 December</span></h2>
 				<dl class="timelineMinor">
-					<dt id="19540517"><a>Brown v. Board of Education</a></dt>
-					<dd class="timelineEvent" id="19540517EX" style="display:none;">
+					<dt id="195405170000"><a>Brown v. Board of Education</a></dt>
+					<dd class="timelineEvent" id="195405170000EX" style="display:none;">
 						<h3>May 17, 1954</h3>
 						<p>
 							The U.S. Supreme Court hands down a unanimous 9-0 decision in the Brown v. Board of Education of Topeka case, opening the door for the civil rights movement and ultimately racial integration in all aspects of U.S. society. In overturning Plessy v. Ferguson (1896), the court rules that “separate educational facilities are inherently unequal.”<sup>1</sup></p>
@@ -271,15 +271,15 @@ for($i=1;$i<=5;$i++){
 	
 		<div class="mask">
 		</div>
-		<div class="instruction1" style="display:none">
-			<img src="images/in1.png"" id="ins1" width="100%" height="100%">  
-		</div>
-		<div class="instruction2" style="display:none">
-			<img src="images/in2.png"" id="ins2" width="100%" height="100%">  
-		</div>
-		<div class="instruction3" style="display:none">
-			<img src="images/in3.png"" id="ins3" width="100%" height="100%">
-		</div>	
+		
+			<img src="images/in1.png"  style="display:none" id="ins1" width="100%" height="100%">  
+		
+		
+			<img src="images/in2.png" id="ins2" style="display:none" width="100%" height="100%">  
+		
+		
+			<img src="images/in3.png" id="ins3" style="display:none" width="100%" height="100%">
+		
 		<fieldset id="rightText">
 		
 		<p><br>
@@ -332,16 +332,28 @@ for($i=1;$i<=5;$i++){
 	
 <script>
 			function findID(key){
+			     var point=0;
 				
 				for (var i=0;i<ids.length;i++){ 
 					var id=ids[i]*10;
 					var context= document.getElementById(id).innerHTML;
 					if(context.indexOf(key) > -1){
 						document.location.href="timeline.php?i=Y&id="+ids[i];
+						point=1;
 					break;
+					}
+					if(point==0){
+					document.location.href="timeline.php";
 					}
 
 				}
+			}
+			function open(){
+			$.timeliner({
+				startOpen:[ID]
+			});
+			// Colorbox Modal
+			$(".CBmodal").colorbox({inline:true, initialWidth:100, maxWidth:682, initialHeight:100, transition:"elastic",speed:750});
 			}
 	</script>
 	
@@ -349,6 +361,8 @@ for($i=1;$i<=5;$i++){
 	
 	<div id="fb-root"></div>
     <script>
+	    var count=0;
+		var tmp=0;
 		// 載入 SDK' source code 後執行此 function
 		window.fbAsyncInit = function() {
 			// init the FB JS SDK
@@ -363,11 +377,23 @@ for($i=1;$i<=5;$i++){
 			// 於 SDK 載入後，設定相關事件
 			// 設家  jQuery 觸發器處理程序，觸發 'fbAsyncInit' 事件
 			$(window).triggerHandler('fbAsyncInit');
+			FB.getLoginStatus(function(response){
+				loadFb();
+			if(tmp==1){
+			setTimeout("findID(keyword)", 3000 )
+			}else if(tmp==2){
+			setTimeout("open()", 3000 )
+			}else{
+			}
+		
+				
+				
+			});
 		};
 		
 		//設定 FB 登入 function
 		function loginFB(){
-
+             
 			// perms(string): 使用者同意之權限。
 			var perms = 'read_stream';
 			
@@ -385,9 +411,63 @@ for($i=1;$i<=5;$i++){
 				//ShowTaoble(response);
 			});
 		}
-		$(document).ready(function() {
-			var monthName = ['January', 'February', 'March', 'April', 'May', 'June', 
+		
+		function loadFb() {
+			FB.api('/me/feed?limit=100&date_format=U&fields=id,message,created_time,picture,place', function(response){
+				var data = response.data;
+				var id, msg, time;
+				var picture;
+				var place;
+				for(var i = 0; i < data.length; i++) {
+					id = data[i].id;
+					msg = data[i].message;
+					time = new Date(data[i].created_time * 1000);
+					//$("#infotest").append("https://www.facebook.com/" + id.replace("_", "/posts/") + "<br>");
+					if(msg) {
+						insertFbMsg(time, msg);
+					}
+				}
+			});
+		}
+			
+		function insertFbMsg(time, msg) {
+			var major = $("h2.timelineMajorMarker:contains('" + monthName[ timeFormat(time).substring(4, 6) - 1 ] + "')").parent();
+			var minor = '<dl class="timelineMinor">' + 
+							'<dt id="' + timeFormat(time) + '"><a>' + msg.substring(0, 5) + '...</a></dt>' +
+							'<dd class="timelineEvent" id="' + timeFormat(time) + 'EX" style="display:none;">' +
+								'<h3>' + dateText(time) + '</h3>' +
+								'<p id="' + timeFormat(time) + '0">' + msg + '</p>' +
+								'<br class="clear">' +
+							'</dd>' +
+						'</d1>';
+			major.append(minor);
+			ids[count]=parseInt(timeFormat(time));
+			count++;
+		}
+		
+		function timeFormat(date) {
+			var y = date.getFullYear();
+			var m = date.getMonth() + 1;
+			var d = ("0" + date.getDate()).slice(-2);
+			var hour = ("0" + date.getHours()).slice(-2);
+			var min = ("0" + date.getMinutes()).slice(-2);
+			//return y + "/" + m + "/" + d + "/" + h;
+			//return y + "/" + m + "/" + d;
+			return "" + y + ("0" + m).slice(-2) + d + hour + min;
+		}
+		function dateText(date) {
+			//var monthName = ['January', 'February', 'March', 'April', 'May', 'June', 
+			//'July', 'August', 'September', 'October', 'November', 'December'];
+			var y = date.getFullYear();
+			var m = date.getMonth();
+			var d = date.getDate();
+			
+			return d + " " + monthName[m] + ", " + y;
+		}
+		var monthName = ['January', 'February', 'March', 'April', 'May', 'June', 
 			'July', 'August', 'September', 'October', 'November', 'December'];
+		$(document).ready(function() {
+			
 			$("#fbLoginBtn").click(function(){
 			  loginFB();
 			});
@@ -454,22 +534,7 @@ for($i=1;$i<=5;$i++){
 							'</d1>';
 				major.append(minor);
 			});
-		
-			function insertFbMsg(time, msg) {
-				var major = $("h2.timelineMajorMarker:contains('" + monthName[ timeFormat(time).substring(4, 6) - 1 ] + "')").parent();
-				var minor = '<dl class="timelineMinor">' + 
-								'<dt id="' + timeFormat(time) + '"><a>' + msg.substring(0, 5) + '...</a></dt>' +
-								'<dd class="timelineEvent" id="' + timeFormat(time) + 'EX" style="display:none;">' +
-									'<h3>' + dateText(time) + '</h3>' +
-									'<p id="' + timeFormat(time) + '0">' + msg + '</p>' +
-									'<br class="clear">' +
-								'</dd>' +
-							'</d1>';
-				ids[count]=parseInt(timeFormat(time));
-				count++;
-				major.append(minor);
-			}
-			
+
 			function insertMedia() {
 				var media = '<div class="media">' + 
 								'<a href="#inline-1963-08-287" class="CBmodal"><img src="http://img.youtube.com/vi/gvAQE66jwcg/0.jpg" width="240" height="180" alt="Related Video: Black Press"></a>'
@@ -491,27 +556,6 @@ for($i=1;$i<=5;$i++){
 								</div>
 						</div>
 			*/
-		
-			function timeFormat(date) {
-				var y = date.getFullYear();
-				var m = date.getMonth() + 1;
-				var d = ("0" + date.getDate()).slice(-2);
-				var hour = ("0" + date.getHours()).slice(-2);
-				var min = ("0" + date.getMinutes()).slice(-2);
-				//return y + "/" + m + "/" + d + "/" + h;
-				//return y + "/" + m + "/" + d;
-				return "" + y + ("0" + m).slice(-2) + d + hour + min;
-			}
-			function dateText(date) {
-				//var monthName = ['January', 'February', 'March', 'April', 'May', 'June', 
-				//'July', 'August', 'September', 'October', 'November', 'December'];
-				var y = date.getFullYear();
-				var m = date.getMonth();
-				var d = date.getDate();
-				
-				return d + " " + monthName[m] + ", " + y;
-			}
-        
 		});
 		
       
@@ -523,7 +567,8 @@ for($i=1;$i<=5;$i++){
 			js.src = "//connect.facebook.net/zh_TW/all.js";
 			ref.parentNode.insertBefore(js, ref);
 		}(document));
-      
+		
+		
     </script> 
     <input type="button" id="fbLoginBtn" value="Login"/> | 
     <input type="button" id="fbLogoutBtn" value="LogOut"/>
@@ -540,14 +585,12 @@ $isID = $_GET[i];
 $ID = $_GET[id];
 if(strcmp($search,"Y")==0){
   $keyword=$_POST[Keyword];
-  echo"<script>findID(\"". $keyword."\");</script>";
+  echo"<script>tmp=1;
+  keyword=\"". $keyword."\";</script>";
 }else if(strcmp($isID,"Y")==0){
   echo"<script>
-			$.timeliner({
-				startOpen:['#".$ID."EX']
-			});
-			// Colorbox Modal
-			$(\".CBmodal\").colorbox({inline:true, initialWidth:100, maxWidth:682, initialHeight:100, transition:\"elastic\",speed:750});
+			tmp=2;
+			var ID='#".$ID."EX';
 	</script>";
 }else{
   echo"<script>unsearch();</script>";
