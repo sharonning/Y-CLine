@@ -8,11 +8,10 @@
 	<link rel="stylesheet" href="css/insert.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="inc/colorbox.css" type="text/css" media="screen">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	
 	<script type="text/javascript" src="inc/colorbox.js"></script>
 	<script type="text/javascript" src="js/timeliner.min.js"></script>
-	<script type="text/javascript" src="js/insert.js"></script>
-	<SCRIPT LANGUAGE="javascript" SRC="js/instruction.js"></SCRIPT>
+	
 	 <script>
 	 function unsearch(){
 		$.timeliner({
@@ -57,7 +56,7 @@ for($i=1;$i<=5;$i++){
 		 else {
 		      echo "<img class=\"pic\" src=\"images/sunny.png\"> ";	  }
 ?>
-<div id="bar" class="barc"><div class="timelineToggle"><p><a class="expandAll">展開全部</a></p></div> </div>
+<div id="bar" class="barc">  <div class="timelineToggle"><p><a class="expandAll">展開全部</a></p></div></div>
 
 <img class="logo" src="images/logo.png">
  <formw>  
@@ -67,7 +66,7 @@ for($i=1;$i<=5;$i++){
 	</p>
 	</form>
 	 </formw> 
-	 
+	
 	<div class="container">
 		
 		<div id="timelineContainer">
@@ -329,7 +328,7 @@ for($i=1;$i<=5;$i++){
 			// FB JavaScript login function
 			FB.login(function(response){
 				// API 回傳 response 值
-				ShowTaoble(response);
+				//ShowTaoble(response);
 			}, { scope: perms } ); // 設定 scope(使用者同意之權限) 參數      
 		}	
       
@@ -337,14 +336,10 @@ for($i=1;$i<=5;$i++){
        
 			// FB JavaScript login function
 			FB.logout(function(response) {
-				ShowTaoble(response);
+				//ShowTaoble(response);
 			});
 		}
 		$(document).ready(function() {
-			$.timeliner({
-			});
-			// Colorbox Modal
-			$(".CBmodal").colorbox({inline:true, initialWidth:100, maxWidth:682, initialHeight:100, transition:"elastic",speed:750});
 			
 			$("#fbLoginBtn").click(function(){
 			  loginFB();
