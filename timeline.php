@@ -17,7 +17,7 @@
 	<script type="text/javascript" src="js/instruction.js"></script>
 	<script type="text/javascript" src="inc/colorbox.js"></script>
 	<script type="text/javascript" src="js/timeliner.min.js"></script>
-	<script type="text/javascript" src="js/jquery.easing.1.3.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 	
 	 <script>
 	 var ids = new Array();
