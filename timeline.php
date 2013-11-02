@@ -33,20 +33,20 @@ for($i=1;$i<=5;$i++){
   }
     
 		  if(strpos($status[1],"lear")>-1){
-		    echo "<body background=\"images/sunny.png\">";
+		    echo "<img class=\"pic\" src=\"images/sunny.png\"> ";
 		 }else if(strpos($status[1],"ain")>-1){
-		      echo "<body background=\"images/sunny.png\">";
+		       echo "<img class=\"pic\" src=\"images/sunny.png\"> ";
 		  }
 		 else if(strpos($status[1],"hunderstorms")>-1){
-		       echo "<body background=\"images/sunny.png\">";		  }
+		         echo "<img class=\"pic\" src=\"images/sunny.png\"> ";		  }
 		else  if(strpos($status[1],"loudy")>-1){
-		    echo "<body background=\"images/sunny.png\">";		  }
+		      echo "<img class=\"pic\" src=\"images/sunny.png\"> ";		  }
 		 else {
-		     echo "<body background=\"images/sunny.png\">";		  }
- 
+		      echo "<img class=\"pic\" src=\"images/sunny.png\"> ";	  }
 ?>
-
-
+<div id="bar" class="barc"> </div>
+<div id="bar2" class="barc2"> </div>
+<img class="logo" src="images/logo.png">
 	<div class="container">
 		
 		<div id="timelineContainer">
@@ -56,7 +56,7 @@ for($i=1;$i<=5;$i++){
 			<br class="clear">
 
 			<div class="timelineMajor">
-				<h2 class="timelineMajorMarker"><span>1954</span></h2>
+				<h2 class="timelineMajorMarker"><span>2013</span></h2>
 				<dl class="timelineMinor">
 					<dt id="19540517"><a>Brown v. Board of Education</a></dt>
 					<dd class="timelineEvent" id="19540517EX" style="display:none;">
@@ -70,7 +70,7 @@ for($i=1;$i<=5;$i++){
 			</div><!-- /.timelineMajor -->
 
 			<div class="timelineMajor">
-				<h2 class="timelineMajorMarker"><span>1955</span></h2>
+				<h2 class="timelineMajorMarker"><span>2012</span></h2>
 				<dl class="timelineMinor">
 					<dt id="19550828"><a>Emmett Till</a></dt>
 					<dd class="timelineEvent" id="19550828EX" style="display:none;">
@@ -271,15 +271,133 @@ for($i=1;$i<=5;$i++){
 	<script type="text/javascript" src="inc/colorbox.js"></script>
 	<script type="text/javascript" src="js/timeliner.min.js"></script>
 	<script type="text/javascript" src="js/insert.js"></script>
-	<script>
+	<div id="fb-root"></div>
+    <script>
+		// 載入 SDK' source code 後執行此 function
+		window.fbAsyncInit = function() {
+			// init the FB JS SDK
+			FB.init({
+				appId      : '487657981341607', // App ID from the App Dashboard
+				//channelUrl : 'http://localhost/channel.html', // Channel File for x-domain communication
+				status     : true, // check the login status upon init?
+				cookie     : true, // set sessions cookies to allow your server to access the session?
+				xfbml      : true  // parse XFBML tags on this page?
+			});
+
+			// 於 SDK 載入後，設定相關事件
+			// 設家  jQuery 觸發器處理程序，觸發 'fbAsyncInit' 事件
+			$(window).triggerHandler('fbAsyncInit');
+		};
+      
+		//設定 FB 登入 function
+		function loginFB(){
+
+			// perms(string): 使用者同意之權限。
+			var perms = 'read_stream';
+			
+			// FB JavaScript login function
+			FB.login(function(response){
+				// API 回傳 response 值
+				ShowTaoble(response);
+			}, { scope: perms } ); // 設定 scope(使用者同意之權限) 參數      
+		}	
+      
+		function logoutFB(){
+       
+			// FB JavaScript login function
+			FB.logout(function(response) {
+				ShowTaoble(response);
+			});
+		}
 		$(document).ready(function() {
 			$.timeliner({
-				
 			});
 			// Colorbox Modal
 			$(".CBmodal").colorbox({inline:true, initialWidth:100, maxWidth:682, initialHeight:100, transition:"elastic",speed:750});
-		});
-	</script>
+        $("#fbLoginBtn").click(function(){
+          loginFB();
+        });
 
+        $("#fbLogoutBtn").click(function(){
+          logoutFB();
+        });
+        
+        $("#meBtn").click(function() {
+          FB.api('/me/feed?date_format=U&fields=id,message,created_time,picture,place', function(response){
+            var data = response.data[4];
+            var id = data.id;
+            var message = data.message;
+            var time = new Date(data.created_time * 1000); //1383060917
+            var picture = data.picture;
+            var place = data.place;            
+            
+            if(message) {
+              $("#postId").text("https://www.facebook.com/" + id.replace("_", "/posts/")); //取得目前仲用者的 id 資料。
+              $("#message").text(message);
+              $("#time").text( dateFormat(time) );
+              $("#picture").text(picture.replace("_s.jpg", "_n.jpg"));
+              if(place) {
+                $("#place").text(place.location.city);
+              }              
+            }
+            //ShowTaoble(response);
+          });
+        });
+		
+		$("#fun").click( function(time, msg, title) {
+			time = new Date(1383060917 * 1000);
+			msg = "吃飯的時候看惹小淳的康熙，\n就算在不熟的場合反應還是很快欸 XDD\n\n是很討喜的主持人 :3".replace(/\n/g, "<br>");
+			title = msg.substring(0, 5) + "...";
+			
+			var major = $("h2.timelineMajorMarker:contains('" + dateFormat(time).substring(0, 4) + "')").parent();
+			var minor = '<dl class="timelineMinor">' + 
+							'<dt id="' + dateFormat(time) + '"><a>' + title + '</a></dt>' +
+							'<dd class="timelineEvent" id="' + dateFormat(time) + 'EX" style="display:none;">' +
+								'<h3>' + dateText(time) + '</h3>' +
+								'<p id="' + dateFormat(time) + '0">' + msg + '</p>' +
+								'<br class="clear">' +
+							'</dd>' +
+						'</d1>';
+			major.append(minor);
+		});
+		
+        function dateFormat(date) {
+          var y = date.getFullYear();
+          var m = date.getMonth() + 1;
+          var d = date.getDate();
+          var h = date.getHours();
+          //return y + "/" + m + "/" + d + "/" + h;
+          //return y + "/" + m + "/" + d;
+		  return "" + y + m + d;
+        }
+		function dateText(date) {
+			var monthName = ['January', 'February', 'March', 'April', 'May', 'June', 
+			'July', 'August', 'September', 'October', 'November', 'December'];
+			var y = date.getFullYear();
+			var m = date.getMonth();
+			var d = date.getDate();
+			
+			return d + " " + monthName[m] + ", " + y;
+		}
+        
+      });      
+      
+      // 非同部載入 SDK's source code
+      (function(d){
+
+         var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement('script'); js.id = id; js.async = true;
+         js.src = "//connect.facebook.net/zh_TW/all.js";
+         ref.parentNode.insertBefore(js, ref);
+
+      }(document));
+      
+    </script> 
+    <input type="button" id="fbLoginBtn" value="Login"/> | 
+    <input type="button" id="fbLogoutBtn" value="LogOut"/>
+
+    <input type="button" id="meBtn" value="取得使用者貼文" />
+	<input type="button" id="fun" value="test" />
 </body>
 </html>

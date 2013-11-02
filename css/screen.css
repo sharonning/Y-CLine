@@ -19,10 +19,20 @@ formw {
   text-align:right;
 }
 
-.word{
-
-color:GREEN;
-font-size:24px;
+.pic{
+position: fixed;
+width:200px;
+  height:500px;
+   top:120px; 
+  left:13px; 
+}
+.logo{
+position: fixed;
+width:150px;
+  height:50px;
+    top:5px; 
+  left:10px; 
+  z-index:2;
 }
 
 .container {
@@ -30,6 +40,7 @@ font-size:24px;
 	margin-left:auto;
 	margin-right:auto;
 	padding:10px;
+	
 	*zoom:1;
 }
 
@@ -85,9 +96,34 @@ p {
 /* ============ TIMELINE ============= */
 
 div#timelineContainer {
+    position:relative;
+	
 	border-left:2px solid #ccc;
 	margin:20px auto;
 	width:900px;
+	
+	}
+.barc{
+  width:1500px;
+  height:60px;
+}
+.barc2{
+  width:1500px;
+  height:60px;
+}
+
+div#bar {
+    position:fixed;
+	border-top:60px solid #2f2f2f;
+	width:1500px;
+	z-index:1;
+}
+div#bar2{
+    position:fixed;
+	border-top:60px solid white;
+	top:60px;
+	width:1500px;
+	z-index:1;
 }
 
 div#monkey {
@@ -123,7 +159,7 @@ div.timelineMajor {
 	clear:left;
 	float:left;
 	margin:0 0 12px;
-	width:900px;
+	width:700px;
 }
 
 	.timelineMajor h2 {
@@ -153,7 +189,7 @@ dl.timelineMinor {
 	margin:0 12px 0 0;
 	padding:4px 4px 4px 0;
 	position:relative;
-	width:880px;
+	width:680px;
 }
 
 	.timelineMinor dt {
@@ -205,7 +241,7 @@ dl.timelineMinor {
 	float:left;
 	line-height:1.5em;
 	margin:6px 0 10px;
-	width:500px;
+	width:300px;
 }
 
 .timelineEvent h4 {
