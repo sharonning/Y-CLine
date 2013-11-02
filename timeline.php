@@ -10,6 +10,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 
+
     <script type="text/javascript" src="js/insert.js"></script>
 
 	<script type="text/javascript" src="inc/colorbox.js"></script>
@@ -71,7 +72,7 @@ for($i=1;$i<=5;$i++){
 	
 	<form  action="timeline.php?s=Y" method="post">
 
-　	<p class="word">SEARCH<input type="text" name="Keyword" size="50">
+　	<p class="word">Search：<input type="text" id="searchText" placeholder="找找以前發生的大事..." name="Keyword" size="40">
 
 	</p>
 	</form>
@@ -265,7 +266,6 @@ for($i=1;$i<=5;$i++){
 		<div id="addData" style="width:480px;height:300px">
 			
 			<form id="insertForm" style="display:none;-webkit-border-radius: 28px;">
-			
 			 &nbsp &nbsp &nbsp &nbsp
 				<p><span id="area"  align="center" style="width:200px;height:20px">
 				選擇行程地點</span>

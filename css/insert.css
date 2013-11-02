@@ -10,7 +10,7 @@ textarea:focus {
 }
 
 
-}
+
 #addData{
 	position:fixed;
 	top:200px;
@@ -94,8 +94,8 @@ textarea:focus {
    font-family: helvetica, serif;
    text-decoration: none;
    vertical-align: middle;
-
-
+	outline: none; 
+cursor: pointer;
 }
 
 #send:hover ,#cancel:hover {
