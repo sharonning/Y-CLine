@@ -7,7 +7,20 @@
 	<link rel="stylesheet" href="css/responsive.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="css/insert.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="inc/colorbox.css" type="text/css" media="screen">
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="inc/colorbox.js"></script>
+	<script type="text/javascript" src="js/timeliner.min.js"></script>
+	<script type="text/javascript" src="js/insert.js"></script>
+	<SCRIPT LANGUAGE="javascript" SRC="js/instruction.js"></SCRIPT>
+	 <script>
+	 function unsearch(){
+		$.timeliner({
+				
+			});
+			// Colorbox Modal
+			$(".CBmodal").colorbox({inline:true, initialWidth:100, maxWidth:682, initialHeight:100, transition:"elastic",speed:750});
+		}</script>
 </head>
 <?php
 error_reporting(0);
@@ -44,15 +57,22 @@ for($i=1;$i<=5;$i++){
 		 else {
 		      echo "<img class=\"pic\" src=\"images/sunny.png\"> ";	  }
 ?>
-<div id="bar" class="barc"> </div>
-<div id="bar2" class="barc2"> </div>
+<div id="bar" class="barc"><div class="timelineToggle"><p><a class="expandAll">展開全部</a></p></div> </div>
+
 <img class="logo" src="images/logo.png">
+ <formw>  
+	
+	<form  action="timeline.php?s=Y" method="post">
+　	<p class="word">SEARCH<input type="text" name="Keyword" size="20">
+	</p>
+	</form>
+	 </formw> 
+	 
 	<div class="container">
 		
 		<div id="timelineContainer">
 
-			<div class="timelineToggle"><p><a class="expandAll">展開全部</a></p></div>
-
+			
 			<br class="clear">
 
 			<div class="timelineMajor">
@@ -100,8 +120,8 @@ for($i=1;$i<=5;$i++){
 
 
 				<dl class="timelineMinor">
-					<dt id="19551201"><a>Rosa Parks</a></dt>
-					<dd class="timelineEvent" id="19551201EX" style="display:none;">
+					<dt id="195512010000"><a>Rosa Parks</a></dt>
+					<dd class="timelineEvent" id="195512010000EX" style="display:none;">
 						<h3>December 1, 1955</h3>
 						<p>
 							The arrest of Rosa Parks, a 42-year-old African-American seamstress and civil rights activist who refused to give up her bus seat to a white passenger, sets off a long anticipated bus boycott by residents of Montgomery, Ala. The 13-month protest and ensuing litigation eventually make it to the U.S. Supreme Court, which declares that segregation on public buses is unconstitutional.<sup>4</sup> The Montgomery bus boycott brings the Rev. Dr. Martin Luther King Jr. and his nonviolent approach to social change to the forefront of the civil rights movement.</p>
@@ -263,12 +283,23 @@ for($i=1;$i<=5;$i++){
 			</form>
 		</div>
 	
+<script>
+			function findID(key){
+				var ids=new Array(20130517,20130216,20130128,20120828,20120601,19570904,19610504,19630828,19640702,19640701,19641014);
+				for (var i=0;i<ids.length;i++){ 
+					var id=ids[i]*10;
+					var context= document.getElementById(id).innerHTML;
+					if(context.indexOf(key) > -1){
+						document.location.href="timeline.php?i=Y&id="+ids[i];
+					break;
+					}
 
-	<!-- GLOBAL CORE SCRIPTS -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script type="text/javascript" src="inc/colorbox.js"></script>
-	<script type="text/javascript" src="js/timeliner.min.js"></script>
-	<script type="text/javascript" src="js/insert.js"></script>
+				}
+			}
+	</script>
+	
+	
+	
 	<div id="fb-root"></div>
     <script>
 		// 載入 SDK' source code 後執行此 function
@@ -312,84 +343,113 @@ for($i=1;$i<=5;$i++){
 			});
 			// Colorbox Modal
 			$(".CBmodal").colorbox({inline:true, initialWidth:100, maxWidth:682, initialHeight:100, transition:"elastic",speed:750});
-        $("#fbLoginBtn").click(function(){
-          loginFB();
-        });
+			
+			$("#fbLoginBtn").click(function(){
+			  loginFB();
+			});
 
-        $("#fbLogoutBtn").click(function(){
-          logoutFB();
-        });
+			$("#fbLogoutBtn").click(function(){
+			  logoutFB();
+			});
         
-        $("#meBtn").click(function() {
-          FB.api('/me/feed?date_format=U&fields=id,message,created_time,picture,place', function(response){
-            var data = response.data[4];
-            var id = data.id;
-            var message = data.message;
-            var time = new Date(data.created_time * 1000); //1383060917
-            var picture = data.picture;
-            var place = data.place;            
-            
-            if(message) {
-              $("#postId").text("https://www.facebook.com/" + id.replace("_", "/posts/")); //取得目前仲用者的 id 資料。
-              $("#message").text(message);
-              $("#time").text( dateFormat(time) );
-              $("#picture").text(picture.replace("_s.jpg", "_n.jpg"));
-              if(place) {
-                $("#place").text(place.location.city);
-              }              
-            }
-            //ShowTaoble(response);
-          });
-        });
+			$("#meBtn").click(function() {
+				FB.api('/me/feed?date_format=U&fields=id,message,created_time,picture,place', function(response){
+					var data = response.data;
+					var id, msg, time;
+					var picture;
+					var place;
+					
+					$.each(data, function(index, value) {
+						id = value.id;
+						msg = value.message;
+						time = new Date(value.created_time * 1000); //1383060917
+						picture = value.picture;
+						place = value.place;
+						if(msg) {
+							insertFbMsg(time, msg);
+						}					
+					})
+					/*
+								
+					
+					if(message) {
+						$("#postId").text("https://www.facebook.com/" + id.replace("_", "/posts/")); //取得目前仲用者的 id 資料。
+						$("#message").text(message);
+						$("#time").text( timeFormat(time) );
+						$("#picture").text(picture.replace("_s.jpg", "_n.jpg"));
+						if(place) {
+							$("#place").text(place.location.city);
+						}              
+					}
+					*/
+				});
+			});
 		
-		$("#fun").click( function(time, msg, title) {
-			time = new Date(1383060917 * 1000);
-			msg = "吃飯的時候看惹小淳的康熙，\n就算在不熟的場合反應還是很快欸 XDD\n\n是很討喜的主持人 :3".replace(/\n/g, "<br>");
-			title = msg.substring(0, 5) + "...";
-			
-			var major = $("h2.timelineMajorMarker:contains('" + dateFormat(time).substring(0, 4) + "')").parent();
-			var minor = '<dl class="timelineMinor">' + 
-							'<dt id="' + dateFormat(time) + '"><a>' + title + '</a></dt>' +
-							'<dd class="timelineEvent" id="' + dateFormat(time) + 'EX" style="display:none;">' +
-								'<h3>' + dateText(time) + '</h3>' +
-								'<p id="' + dateFormat(time) + '0">' + msg + '</p>' +
-								'<br class="clear">' +
-							'</dd>' +
-						'</d1>';
-			major.append(minor);
-		});
+			$("#fun").click( function(time, msg, title) {
+				time = new Date(1383060917 * 1000);
+				msg = "吃飯的時候看惹小淳的康熙，\n就算在不熟的場合反應還是很快欸 XDD\n\n是很討喜的主持人 :3".replace(/\n/g, "<br>");
+				title = msg.substring(0, 5) + "...";
+				
+				var major = $("h2.timelineMajorMarker:contains('" + timeFormat(time).substring(0, 4) + "')").parent();
+				var minor = '<dl class="timelineMinor">' + 
+								'<dt id="' + timeFormat(time) + '"><a>' + title + '</a></dt>' +
+								'<dd class="timelineEvent" id="' + timeFormat(time) + 'EX" style="display:none;">' +
+									'<h3>' + dateText(time) + '</h3>' +
+									'<p id="' + timeFormat(time) + '0">' + msg + '</p>' +
+									'<br class="clear">' +
+								'</dd>' +
+							'</d1>';
+				major.append(minor);
+			});
 		
-        function dateFormat(date) {
-          var y = date.getFullYear();
-          var m = date.getMonth() + 1;
-          var d = date.getDate();
-          var h = date.getHours();
-          //return y + "/" + m + "/" + d + "/" + h;
-          //return y + "/" + m + "/" + d;
-		  return "" + y + m + d;
-        }
-		function dateText(date) {
-			var monthName = ['January', 'February', 'March', 'April', 'May', 'June', 
-			'July', 'August', 'September', 'October', 'November', 'December'];
-			var y = date.getFullYear();
-			var m = date.getMonth();
-			var d = date.getDate();
-			
-			return d + " " + monthName[m] + ", " + y;
-		}
+			function insertFbMsg(time, msg) {
+			/*
+				time = new Date(1383060917 * 1000);
+				msg = "吃飯的時候看惹小淳的康熙，\n就算在不熟的場合反應還是很快欸 XDD\n\n是很討喜的主持人 :3".replace(/\n/g, "<br>");
+				title = msg.substring(0, 5) + "...";
+			*/	
+				var major = $("h2.timelineMajorMarker:contains('" + timeFormat(time).substring(0, 4) + "')").parent();
+				var minor = '<dl class="timelineMinor">' + 
+								'<dt id="' + timeFormat(time) + '"><a>' + msg.substring(0, 5) + '...</a></dt>' +
+								'<dd class="timelineEvent" id="' + timeFormat(time) + 'EX" style="display:none;">' +
+									'<h3>' + dateText(time) + '</h3>' +
+									'<p id="' + timeFormat(time) + '0">' + msg + '</p>' +
+									'<br class="clear">' +
+								'</dd>' +
+							'</d1>';
+				major.append(minor);
+			}
+		
+			function timeFormat(date) {
+				var y = date.getFullYear();
+				var m = date.getMonth() + 1;
+				var d = date.getDate();
+				var hour = date.getHours();
+				var min = date.getMinutes();
+				//return y + "/" + m + "/" + d + "/" + h;
+				//return y + "/" + m + "/" + d;
+				return "" + y + m + d + hour + min;
+			}
+			function dateText(date) {
+				var monthName = ['January', 'February', 'March', 'April', 'May', 'June', 
+				'July', 'August', 'September', 'October', 'November', 'December'];
+				var y = date.getFullYear();
+				var m = date.getMonth();
+				var d = date.getDate();
+				
+				return d + " " + monthName[m] + ", " + y;
+			}
         
-      });      
+		});      
       
-      // 非同部載入 SDK's source code
-      (function(d){
-
-         var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement('script'); js.id = id; js.async = true;
-         js.src = "//connect.facebook.net/zh_TW/all.js";
-         ref.parentNode.insertBefore(js, ref);
-
-      }(document));
+		// 非同部載入 SDK's source code
+		(function(d){
+			var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement('script'); js.id = id; js.async = true;
+			js.src = "//connect.facebook.net/zh_TW/all.js";
+			ref.parentNode.insertBefore(js, ref);
+		}(document));
       
     </script> 
     <input type="button" id="fbLoginBtn" value="Login"/> | 
@@ -397,5 +457,28 @@ for($i=1;$i<=5;$i++){
 
     <input type="button" id="meBtn" value="取得使用者貼文" />
 	<input type="button" id="fun" value="test" />
+	
+	
+	<?php
+error_reporting(0);
+$search = $_GET[s]; 
+$isID = $_GET[i];
+$ID = $_GET[id];
+if(strcmp($search,"Y")==0){
+  $keyword=$_POST[Keyword];
+  echo"<script>findID(\"". $keyword."\");</script>";
+}else if(strcmp($isID,"Y")==0){
+  echo"<script>
+			$.timeliner({
+				startOpen:['#".$ID."EX']
+			});
+			// Colorbox Modal
+			$(\".CBmodal\").colorbox({inline:true, initialWidth:100, maxWidth:682, initialHeight:100, transition:\"elastic\",speed:750});
+	</script>";
+}else{
+  echo"<script>unsearch();</script>";
+}
+
+?>
 </body>
 </html>
