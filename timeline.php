@@ -364,7 +364,7 @@ for($i=1;$i<=5;$i++){
 			// 設家  jQuery 觸發器處理程序，觸發 'fbAsyncInit' 事件
 			$(window).triggerHandler('fbAsyncInit');
 		};
-      
+		
 		//設定 FB 登入 function
 		function loginFB(){
 
@@ -395,7 +395,7 @@ for($i=1;$i<=5;$i++){
 			$("#fbLogoutBtn").click(function(){
 			  logoutFB();
 			});
-        
+			
 			$("#meBtn").click(function() {
 				FB.api('/me/feed?limit=100&date_format=U&fields=id,message,created_time,picture,place', function(response){
 					var data = response.data;
