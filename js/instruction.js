@@ -28,4 +28,4 @@ function instruction()
 			$(".mask").hide();
 				});*/
 }
-	$(document).ready(instruction);
+	//$(document).ready(instruction);

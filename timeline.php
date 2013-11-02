@@ -292,9 +292,9 @@ for($i=1;$i<=5;$i++){
 			<fieldset id="rinnerContent">
 				<ul type="square">
 					<li id="t1">
-					不知道為什麼寫程式要送酒	</li><br>
+					福懋混油，經部決撤銷GMP	</li><br>
 					<li id="t2">
-					竹蘺上停留著蜻蜓，玻璃瓶裡插滿小小森林。</li><br>
+					警：潑糞案 不排除雙方有糾紛</li><br>
 					<li id="t3">颱風外圍環流影響 週末各地有雨</li><br>
 					<li id="t4">柯羅莎外圍雲系影響 雙北市、東北部防豪雨</li><br>
 				</ul>
