@@ -13,9 +13,9 @@ textarea:focus {
 
 #addData{
 	position:fixed;
-	top:200px;
-	bottom:800px;
-	left:700px;
+	top:450px;
+	bottom:550px;
+	left:1000px;
 	right:0px;
 	-webkit-border-radius: 28px;
     -moz-border-radius: 28px;
@@ -25,9 +25,9 @@ textarea:focus {
 
 #insertImg{
 	position:fixed;
-	top:400px;
+	top:500px;
 	bottom:800px;
-	left:1100px;
+	left:1200px;
 	right:0px;
 	cursor: pointer;
 	z-index:5;

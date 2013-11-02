@@ -55,18 +55,18 @@ for($i=1;$i<=5;$i++){
 	$high[1]=trim($high[1])."°C";
 	$low[1]=str_replace("<br />","",$low[1])."°C";
 		  if(strpos($status[1],"lear")>-1){
-		    echo "<img class=\"pic\" src=\"images/cloudy.jpg\"> 
+		    echo "<fieldset id=\"picBack\"><img class=\"pic\" src=\"images/cloudy.jpg\"> 
 			<p class=\"city\">台北</p>
 	<p class=\"low\">".$low[1]."</p>
 	<p class=\"high\">".$high[1]."</p>
-	<p class=\"now\">".$now."</p>";
+	<p class=\"now\">".$now."</p></fieldset>";
 		}
 		 else {
-		      echo "<img class=\"pic\" src=\"images/cloudy.jpg\"> 
+		      echo "<fieldset id=\"picBack\"><img class=\"pic\" src=\"images/cloudy.jpg\"> 
 			<p class=\"city\">台北</p>
 	<p class=\"low\">".$low[1]."</p>
 	<p class=\"high\">".$high[1]."</p>
-	<p class=\"now\">".$now."</p>";	  }
+	<p class=\"now\">".$now."</p></fieldset>";	  }
 ?>
 <div id="bar" class="barc">  </div>
 
@@ -280,7 +280,25 @@ for($i=1;$i<=5;$i++){
 		<div class="instruction3" style="display:none">
 			<img src="images/in3.png"" id="ins3" width="100%" height="100%">
 		</div>	
-	
+		<fieldset id="rightText">
+		
+		<p><br>
+		<span id="rinnerText">
+		最近記事...
+		</span>
+		</p><br>
+			<fieldset id="rinnerContent">
+				<ul type="square">
+					<li id="t1">
+					不知道為什麼寫程式要送酒	</li><br>
+					<li id="t2">
+					竹蘺上停留著蜻蜓，玻璃瓶裡插滿小小森林。</li><br>
+					<li id="t3">颱風外圍環流影響 週末各地有雨</li><br>
+					<li id="t4">柯羅莎外圍雲系影響 雙北市、東北部防豪雨</li><br>
+				</ul>
+			
+			</fieldset>
+		</fieldset>
 	
 		<img id="insertImg" src="images/add.png" width="100" height="100">	
 		<div id="addData" style="width:480px;height:300px">
@@ -379,13 +397,13 @@ for($i=1;$i<=5;$i++){
 			});
         
 			$("#meBtn").click(function() {
-				FB.api('/me/feed?limit=25&since=1374933543&date_format=U&fields=id,message,created_time,picture,place', function(response){
+				FB.api('/me/feed?limit=100&date_format=U&fields=id,message,created_time,picture,place', function(response){
 					var data = response.data;
 					var id, msg, time;
 					var picture;
 					var place;
-					
-					$.each(data, function(index, value) {
+					//$("#infotest").append(data.length);
+					/*$.each(data, function(index, value) {
 						id = value.id;
 						msg = value.message;
 						time = new Date(value.created_time * 1000); //1383060917
@@ -394,7 +412,16 @@ for($i=1;$i<=5;$i++){
 						if(msg) {
 							insertFbMsg(time, msg);
 						}					
-					})
+					})*/
+					for(var i = 0; i < data.length; i++) {
+						id = data[i].id;
+						msg = data[i].message;
+						time = new Date(data[i].created_time * 1000);
+						$("#infotest").append("https://www.facebook.com/" + id.replace("_", "/posts/") + "<br>");
+						if(msg) {
+							insertFbMsg(time, msg);
+						}
+					}
 					/*
 								
 					
@@ -429,7 +456,6 @@ for($i=1;$i<=5;$i++){
 			});
 		
 			function insertFbMsg(time, msg) {
-				alert(monthName[ timeFormat(time).substring(4, 6) - 1 ]);
 				var major = $("h2.timelineMajorMarker:contains('" + monthName[ timeFormat(time).substring(4, 6) - 1 ] + "')").parent();
 				var minor = '<dl class="timelineMinor">' + 
 								'<dt id="' + timeFormat(time) + '"><a>' + msg.substring(0, 5) + '...</a></dt>' +
@@ -504,6 +530,7 @@ for($i=1;$i<=5;$i++){
 
     <input type="button" id="meBtn" value="取得使用者貼文" />
 	<input type="button" id="fun" value="test" />
+	<span id="infotest">00000000000000000test</span>
 	
 	
 	<?php
