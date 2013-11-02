@@ -20,6 +20,7 @@
 	
 	 <script>
 	 var ids = new Array();
+	 var count=0;
 	 function unsearch(){
 		$.timeliner({
 				startOpen:['#19540517EX']
@@ -299,7 +300,7 @@ for($i=1;$i<=5;$i++){
 			</fieldset>
 		</fieldset>
 	
-		<img id="insertImg" src="images/add.png" width="100" height="100">	
+		<img id="insertImg" src="images/add.png" width="90" height="90">	
 		<div id="addData" style="width:480px;height:300px">
 			
 			<form id="insertForm" style="display:none;-webkit-border-radius: 28px;">
@@ -508,8 +509,22 @@ for($i=1;$i<=5;$i++){
 							'</d1>';
 				major.append(minor);
 			});
-			
-			
+
+		
+			function insertFbMsg(time, msg) {
+				var major = $("h2.timelineMajorMarker:contains('" + monthName[ timeFormat(time).substring(4, 6) - 1 ] + "')").parent();
+				var minor = '<dl class="timelineMinor">' + 
+								'<dt id="' + timeFormat(time) + '"><a>' + msg.substring(0, 5) + '...</a></dt>' +
+								'<dd class="timelineEvent" id="' + timeFormat(time) + 'EX" style="display:none;">' +
+									'<h3>' + dateText(time) + '</h3>' +
+									'<p id="' + timeFormat(time) + '0">' + msg + '</p>' +
+									'<br class="clear">' +
+								'</dd>' +
+							'</d1>';
+				ids[count]=parseInt(timeFormat(time));
+				count++;
+				major.append(minor);
+			}
 			
 			function insertMedia() {
 				var media = '<div class="media">' + 
