@@ -42,4 +42,4 @@ function instruction()
 		
 }
 			
-//	$(document).ready(instruction);
+	$(document).ready(instruction);
