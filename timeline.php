@@ -500,7 +500,18 @@ for($i=1;$i<=5;$i++){
 				});
 			  
 			});
-        
+			
+			$.ajax({		
+					url: 'calendar.php',
+					success:function(response){
+						insertGoogleMsg(response);
+					},		
+					error:function(xhr, ajaxOptions, thrownError){ 
+						alert(xhr.status); 
+						alert(thrownError); 
+					}
+				});
+			
 			$("#meBtn").click(function() {
 				FB.api('/me/feed?limit=100&date_format=U&fields=id,message,created_time,picture,place', function(response){
 					var data = response.data;
