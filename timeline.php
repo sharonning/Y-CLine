@@ -79,12 +79,12 @@ for($i=1;$i<=5;$i++){
 
  <formw>  
 	
-	<form  action="timeline.php?s=Y" method="post">
+
 
 　	<p class="word">Search <input type="text" id="searchText" placeholder=" 找找以前發生的大事..." name="Keyword" size="40">
 
 	</p>
-	</form>
+
 	 </formw> 
 	
 	<div class="container">
@@ -341,23 +341,20 @@ for($i=1;$i<=5;$i++){
 			</form>
 		</div>
 	
-<script>
+	<script>
 			function findID(key){
-			     var point=0;
-				
-				for (var i=0;i<ids.length;i++){ 
-					var id=ids[i]*10;
-					var context= document.getElementById(id).innerHTML;
+			    var point=0;
+				var idArray = [];
+				$("dl.timelineMinor dt").each( function(){ idArray.push(this.id); } );
+				for (var i=0; i<idArray.length; i++){ 
+					var context= $("p#" + idArray[i] + "0").text();
 					if(context.indexOf(key) > -1){
-						document.location.href="timeline.php?i=Y&id="+ids[i];
+						openTimeEvent(idArray[i]);
 						point=1;
-					break;
+						//break;
 					}
-					if(point==0){
-					document.location.href="timeline.php";
-					}
-
-				}
+					
+				}				
 			}
 			function open(){
 			$.timeliner({
@@ -390,15 +387,14 @@ for($i=1;$i<=5;$i++){
 			$(window).triggerHandler('fbAsyncInit');
 			FB.getLoginStatus(function(response){
 				loadFb();
-			if(tmp==1){
-			setTimeout("findID(keyword)", 3000 )
-			}else if(tmp==2){
-			setTimeout("open()", 3000 )
-			}else{
-			}
-		
-				
-				
+				if(tmp==1){
+					setTimeout("findID(keyword)", 5000 )
+				}
+				else if(tmp==2){
+					setTimeout("open()", 5000 )
+				}
+				else{
+				}
 			});
 		};
 		
@@ -419,7 +415,6 @@ for($i=1;$i<=5;$i++){
        
 			// FB JavaScript login function
 			FB.logout(function(response) {
-				//ShowTaoble(response);
 			});
 		}
 		
@@ -451,9 +446,10 @@ for($i=1;$i<=5;$i++){
 								'<br class="clear">' +
 							'</dd>' +
 						'</d1>';
-			major.append(minor);
 			ids[count]=parseInt(timeFormat(time));
-			count++;
+			count++;			
+			major.append(minor);
+			
 		}
 		
 		function timeFormat(date) {
@@ -462,22 +458,32 @@ for($i=1;$i<=5;$i++){
 			var d = ("0" + date.getDate()).slice(-2);
 			var hour = ("0" + date.getHours()).slice(-2);
 			var min = ("0" + date.getMinutes()).slice(-2);
-			//return y + "/" + m + "/" + d + "/" + h;
-			//return y + "/" + m + "/" + d;
 			return "" + y + ("0" + m).slice(-2) + d + hour + min;
 		}
 		function dateText(date) {
-			//var monthName = ['January', 'February', 'March', 'April', 'May', 'June', 
-			//'July', 'August', 'September', 'October', 'November', 'December'];
 			var y = date.getFullYear();
 			var m = date.getMonth();
 			var d = date.getDate();
 			
 			return d + " " + monthName[m] + ", " + y;
 		}
+		
+		function openTimeEvent(id) {
+			$("#" + id + " a").removeClass('closed').addClass('open').animate({ fontSize: "1.2em" }, 200);
+			$("#" + id + "EX").show(800);
+		}
+		
 		var monthName = ['January', 'February', 'March', 'April', 'May', 'June', 
 			'July', 'August', 'September', 'October', 'November', 'December'];
+			
 		$(document).ready(function() {
+		
+			$("#searchText").keypress(function(e) {
+				var keycode = (e.keyCode ? e.keyCode : e.which);
+				if(keycode == 13 && $("#searchText").val() != "") {
+					findID($("#searchText").val());
+				}
+			});
 			
 			$("#fbLoginBtn").click(function(){
 			  loginFB();
@@ -555,6 +561,8 @@ for($i=1;$i<=5;$i++){
 			});
 		
 			$("#fun").click( function(time, msg, title) {
+				openTimeEvent();
+			/*
 				time = new Date(1383060917 * 1000);
 				msg = "吃飯的時候看惹小淳的康熙，\n就算在不熟的場合反應還是很快欸 XDD\n\n是很討喜的主持人 :3".replace(/\n/g, "<br>");
 				title = msg.substring(0, 5) + "...";
@@ -569,22 +577,9 @@ for($i=1;$i<=5;$i++){
 								'</dd>' +
 							'</d1>';
 				major.append(minor);
+			*/
 			});
-			
-			function insertFbMsg(time, msg) {
-				var major = $("h2.timelineMajorMarker:contains('" + monthName[ timeFormat(time).substring(4, 6) - 1 ] + "')").parent();
-				var minor = '<dl class="timelineMinor">' + 
-								'<dt id="' + timeFormat(time) + '"><a>' + msg.substring(0, 5) + '...</a></dt>' +
-								'<dd class="timelineEvent" id="' + timeFormat(time) + 'EX" style="display:none;">' +
-									'<h3>' + dateText(time) + '</h3>' +
-									'<p id="' + timeFormat(time) + '0">' + msg + '</p>' +
-									'<br class="clear">' +
-								'</dd>' +
-							'</d1>';
-				ids[count]=parseInt(timeFormat(time));
-				count++;
-				major.append(minor);
-			}
+
 			
 			function insertGoogleMsg(msg) {
 				var elements = msg.split(";");
